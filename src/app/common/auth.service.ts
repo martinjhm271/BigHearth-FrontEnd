@@ -23,7 +23,8 @@ constructor(public router: Router, public appData: AppDataService) { }
 
   public signOut() {
     this.appData.removeAccessToken();
-    this.router.navigate([''])
+
+    this.router.navigate(['']);
   }
 
   canActivate() {
@@ -33,4 +34,8 @@ constructor(public router: Router, public appData: AppDataService) { }
     }
     return true;
   }
+
 }
+
+}
+

@@ -15,12 +15,12 @@ export class SignInPageComponent implements OnInit {
 
 
 
-    
+
     constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
 
      }
 
-     ngOnInit() { 
+     ngOnInit() {
       this.signInForm = this.formBuilder.group({
         username: '',
         password: ''
