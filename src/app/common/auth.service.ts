@@ -37,5 +37,3 @@ constructor(public router: Router, public appData: AppDataService) { }
 
 }
 
-}
-
