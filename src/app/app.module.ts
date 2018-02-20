@@ -13,13 +13,16 @@ import { HttpModule } from '@angular/http';
 import { SignInPageComponent } from './pages/sign-in/sign-in-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { UsersService } from './services/users.service';
 import { AuthService } from './common/auth.service';
+
 
 
 const ROUTES = [
      { path: '', component: SignInPageComponent },
      { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
+     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
      { path: '**', component: PageNotFoundComponent}
 ]
 
@@ -28,7 +31,8 @@ const ROUTES = [
     AppComponent,
     HomePageComponent,
     SignInPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NewEventPageComponent
   ],
   imports: [
     BrowserModule,
