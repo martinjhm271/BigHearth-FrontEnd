@@ -3,66 +3,62 @@
 </h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-6">
-                <div class="form-group">
-                    <label for="newVoluntieer">Nombre voluntariado</label>
-                    <input type="text" class="form-control" id="newVoluntieer" aria-describedby="emailHelp" placeholder="Ingrese un nombre para el voluntariado">
-                </div>
-                <div class="input-group mb-3">
-                    <label for="newImageVoluntieer">Nombre voluntariado</label>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Cargar imagen</span>
+    <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="row">
+            <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="newVoluntieer">Nombre voluntariado</label>
+                        <input type="text" class="form-control" id="newVoluntieer" aria-describedby="emailHelp" placeholder="Ingrese un nombre para el voluntariado">
                     </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="newImageVoluntieer">
-                        <label class="custom-file-label" for="newImageVoluntieer">Selecionar imagen</label>
+                    <div class="form-group">
+                            <label for="newImageVoluntieer">Imagen voluntariado</label>
+                            <input type="text" class="form-control" id="newImageVoluntieer" placeholder="Ingrese una URL para la imagen del voluntariado">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="ManyVoluntieer">Numero de voluntarios</label>
-                    <input type="number" class="form-control" id="ManyVoluntieer"  placeholder="Ingrese el numero de voluntarios permitidos">
-                </div>
-                <div class="form-group">
-                    <label for="commentVolunteer">Descripcion del voluntariado</label>
-                    <textarea class="form-control" rows="5" id="commentVolunteer"></textarea>
-                </div>
-        </div>
-        <div class="col-xs-6">
-            <div class="input-group mb-3">
-                <label for="typeOfVolunteer">Descripcion del voluntariado</label>
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="typeOfVolunteer">Options</label>
-                </div>
-                <select class="custom-select" id="typeOfVolunteer">
-                    <option selected>Selecionar tipo de voluntariado</option>
-                    <option value="1">AMBIENTAL</option>
-                    <option value="2">COMUNITARIO</option>
-                    <option value="3">CULTURAL</option>
-                    <option value="4">EDUCATIVO</option>
-                    <option value="5">INTERNACIONAL</option>
-                    <option value="6">OCIO Y TIEMPO LIBRE</option>
-                    <option value="7">PROTECCIÓN CIVIL</option>
-                    <option value="8">SOCIO-SANITARIO</option>
-                    <option value="9">DEPORTIVO</option>
-                    <option value="10">SOCIAL</option>
-                </select>
+                    <div class="form-group">
+                        <label for="ManyVoluntieer">Numero de voluntarios</label>
+                        <input type="number" class="form-control" id="ManyVoluntieer"  placeholder="Ingrese el numero de voluntarios permitidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="commentVolunteer">Descripcion del voluntariado</label>
+                        <textarea class="form-control" rows="5" id="commentVolunteer"></textarea>
+                    </div>
             </div>
-            <label for="dateVolunteer">Descripcion del voluntariado</label>
-            <div class="input-append date form_datetime" data-date="2012-12-21T15:25:00Z">
-                <input size="16" type="text" value="" readonly id="dateVolunteer">
-                <span class="add-on"><i class="icon-remove"></i></span>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="typeOfVolunteer">Descripcion del voluntariado</label>
+                    <div class="form-group">
+                        <label class="input-group-text" for="typeOfVolunteer">Options</label>
+                    </div>
+                    <select class="custom-select" id="typeOfVolunteer">
+                        <option selected>Selecionar tipo de voluntariado</option>
+                        <option value="1">AMBIENTAL</option>
+                        <option value="2">COMUNITARIO</option>
+                        <option value="3">CULTURAL</option>
+                        <option value="4">EDUCATIVO</option>
+                        <option value="5">INTERNACIONAL</option>
+                        <option value="6">OCIO Y TIEMPO LIBRE</option>
+                        <option value="7">PROTECCIÓN CIVIL</option>
+                        <option value="8">SOCIO-SANITARIO</option>
+                        <option value="9">DEPORTIVO</option>
+                        <option value="10">SOCIAL</option>
+                    </select>
+                </div>
+                <label for="dateVolunteer">Descripcion del voluntariado</label>
+                <div class="input-append date form_datetime" data-date="2012-12-21T15:25:00Z">
+                    <input size="16" type="text" value="" readonly id="dateVolunteer">
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                </div>
+
+                <script type="text/javascript">
+                    $(".form_datetime").datetimepicker({
+                    format: "dd MM yyyy - HH:ii P",showMeridian: true,autoclose: true,todayBtn: true
+                    });
+                </script>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-danger">Cancelar</button>
             </div>
-
-            <script type="text/javascript">
-                $(".form_datetime").datetimepicker({
-                format: "dd MM yyyy - HH:ii P",showMeridian: true,autoclose: true,todayBtn: true
-                });
-            </script>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-danger">Cancelar</button>
         </div>
-    </div>
+</form>
 </div>
 
