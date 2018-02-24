@@ -6,7 +6,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 
 @Injectable()
-export class UsersService extends APIService {
+export class EventService extends APIService {
 
 
 
@@ -18,13 +18,15 @@ constructor(
     super(config, authService, http);
   }
 
-  login(username: string, password: string) {
-    return this.post('user/login', { username, password }, { credentials: false }).map(loginResponse => {
-      if (loginResponse) {
-        this.authService.accessToken = loginResponse.accessToken;
-      }
-    });
-  }
+
+
+  getEvents(): Observable<Event[]> {
+      return this.get("event");
+    }
+    getEvent( id: Number  ):Observable<Event>
+        {
+           return this.get("event/byId."+id);
+        }
 
 
 }
