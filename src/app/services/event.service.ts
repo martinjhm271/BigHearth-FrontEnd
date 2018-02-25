@@ -3,6 +3,8 @@ import { APIService } from '../common/api.service';
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import { Event} from '../models/event';
 
 
 @Injectable()

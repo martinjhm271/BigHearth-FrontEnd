@@ -17,7 +17,7 @@ export class EventDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.getEvent(0).subscribe(eventsResponse=>{
+    this.eventService.getEvents().subscribe(eventsResponse=>{
       this.events = eventsResponse;
     })
   }
