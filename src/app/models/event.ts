@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Volunteer } from './volunteer';
 
 @Injectable()
 export class Event {
-    public id: Number;
-    public name: String;
-    public image: String;
-    public maxVolunteers: Number;
-    public description: String ;
-    public type: String;
-    public eventDate: Date;
-    public volunteers: any[];
-    constructor(id: Number,maxVolunteers:Number,name:String,type:String,description:String,eventDate:Date,image:String,volunteers:any[]) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.maxVolunteers = maxVolunteers;
-        this.description = description;
-        this.type = type;
-        this.eventDate = eventDate;
-        this.volunteers=volunteers;
-    }
-}
+
+     private id: Number;
+     private maxVolunteers: Number;
+     private name:string;
+     private type:string;
+     private description:string;
+     private eventDate:Date;
+     private image:Blob;
+     private volunteers:Volunteer[];
+
+     constructor(id: Number,maxVolunteers:Number,name: string, type: string, description: string,eventDate:Date,image:Blob,volunteers:Volunteer[]) {
+         this.id = id;
+         this.maxVolunteers = maxVolunteers;
+         this.name = name;
+         this.type = type;
+         this.description = description;
+         this.eventDate = eventDate;
+         this.image = image;
+         this.volunteers = volunteers;
+     }
+ }
