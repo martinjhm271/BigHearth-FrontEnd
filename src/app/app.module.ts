@@ -15,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { UsersService } from './services/users.service';
+import { EventsService} from './services/events.service';
 import { AuthService } from './common/auth.service';
 
 
@@ -49,6 +50,7 @@ const ROUTES = [
     AuthService,
     AppDataService,
     UsersService,
+    EventsService,
     AppConfiguration
   ],
   bootstrap: [AppComponent]

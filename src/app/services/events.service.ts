@@ -3,20 +3,13 @@ import { APIService } from '../common/api.service';
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
-
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/observable/of';
-
-import { Event } from '../models/Event';
+import { Observable } from 'rxjs/Observable';
+import { Event}from '../models/event';
 
 @Injectable()
 export class EventsService extends APIService {
 
-private resourceUrl = 'event';
+  private resourceUrl = 'event';
 
 constructor(
     public config: AppConfiguration,
@@ -26,8 +19,12 @@ constructor(
     super(config, authService, http);
   }
 
-  create(eventId: Number, eventName: string, URLImage: string, cantVolunteer: Number, commentEvent: string, eventType: string, dateEvent: Date): Observable<Event[]> {
-    return this.post(this.resourceUrl,new Event(eventId, eventName, URLImage, cantVolunteer,commentEvent,eventType, dateEvent));
+
+
+  create(id: Number,maxVolunteers:Number,name:String,type:String,description:String,eventDate:Date,image:String,volunteers:any[]): Observable<Event> {
+    return this.post(this.resourceUrl,new Event(id,maxVolunteers,name,type,description,eventDate,image,volunteers));
 
   }
+
+
 }
