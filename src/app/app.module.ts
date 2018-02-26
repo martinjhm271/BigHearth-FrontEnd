@@ -38,7 +38,7 @@ const ROUTES = [
     SignInPageComponent,
     PageNotFoundComponent,
     EventDetailPageComponent,
-    EventListPageComponent
+    EventListPageComponent,
     NewEventPageComponent
   ],
   imports: [

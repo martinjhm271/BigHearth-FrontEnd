@@ -5,6 +5,7 @@ import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import { Event} from '../models/event';
+import { EventId } from '../models/EventId';
 
 
 @Injectable()
@@ -20,8 +21,8 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,maxVolunteers:Number,name:String,eventType:String,description:String,eventDate:Date,image:String,volunteers:any[]): Observable<Event> {
-    return this.post(this.resourceUrl,new Event(id,maxVolunteers,name,eventType,description,eventDate,image,volunteers));
+  create(id: Number,maxVolunteers:Number,name:string,eventType:string,description:string,eventDate:Date,image:string,volunteers:any[]): Observable<Event> {
+    return this.post(this.resourceUrl,new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers));
 
   }
 
