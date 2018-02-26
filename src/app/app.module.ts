@@ -14,6 +14,7 @@ import { SignInPageComponent } from './pages/sign-in/sign-in-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
+import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
@@ -23,6 +24,7 @@ const ROUTES = [
      { path: '', component: SignInPageComponent },
      { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
+     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService] },
      { path: '**', component: PageNotFoundComponent}
 ]
 
@@ -32,7 +34,8 @@ const ROUTES = [
     HomePageComponent,
     SignInPageComponent,
     PageNotFoundComponent,
-    EventDetailPageComponent
+    EventDetailPageComponent,
+    EventListPageComponent
   ],
   imports: [
     BrowserModule,
