@@ -22,6 +22,12 @@ export class EventListPageComponent implements OnInit {
     })
   }
 
+
+  detailFunc(eventId) {
+      sessionStorage.setItem("clickedEvent", eventId);
+      this.router.navigate(['/eventDetail']);
+    }
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

@@ -7,33 +7,32 @@ import { AppDataService } from '../common/app-data.service';
 
 @Injectable()
 export class AuthService implements CanActivate {
-constructor(public router: Router, public appData: AppDataService) { }
 
-  public get accessToken(): string {
-    return this.appData.accessToken;
-  }
+    constructor(public router: Router, public appData: AppDataService) { }
 
-  public set accessToken(accessToken: string) {
-    this.appData.accessToken = accessToken;
-  }
-
-  public isLoggedIn(): boolean {
-    return this.appData.accessToken != null && this.appData.accessToken !== undefined;
-  }
-
-  public signOut() {
-    this.appData.removeAccessToken();
-
-    this.router.navigate(['']);
-  }
-
-  canActivate() {
-    if (!this.isLoggedIn()) {
-      this.router.navigate(['']);
-      return false;
+    public get accessToken(): string {
+        return this.appData.accessToken;
     }
-    return true;
-  }
 
+    public set accessToken(accessToken: string) {
+        this.appData.accessToken = accessToken;
+    }
+
+    public isLoggedIn(): boolean {
+        return this.appData.accessToken != null && this.appData.accessToken !== undefined;
+    }
+
+    public signOut() {
+        this.appData.removeAccessToken();
+        this.router.navigate(['']);
+    }
+
+    public canActivate() {
+        if (!this.isLoggedIn()) {
+            this.router.navigate(['']);
+            return false;
+        }
+        return true;
+    }
 }
 

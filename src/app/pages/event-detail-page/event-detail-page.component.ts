@@ -18,11 +18,16 @@ export class EventDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.getEvent(0).subscribe(eventResponse=>{
+    this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
       this.events.push(eventResponse);
       this.volunteers=eventResponse.volunteers;
     })
   }
+
+  detailFunc(username) {
+      sessionStorage.setItem("clickedUser", username);
+      this.router.navigate(['/userDetails']);
+    }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();

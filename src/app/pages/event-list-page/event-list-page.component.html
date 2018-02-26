@@ -10,7 +10,7 @@
     </thead>
     <tr *ngFor="let event of events">
         <td><img [src]="event.image" width="150" height="150" /></td>
-        <td>{{event.id}}</td>
+        <td (click)="detailFunc(event.eventId)">{{event.eventId.id}}</td>
         <td>{{event.maxVolunteers}}</td>
         <td>{{event.name}}</td>
     </tr>
