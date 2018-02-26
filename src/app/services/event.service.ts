@@ -29,9 +29,9 @@ constructor(
   getEvents(): Observable<Event[]> {
       return this.get("event");
     }
-    getEvent( id: Number  ):Observable<Event>
+    getEvent( idname:string  ):Observable<Event>
         {
-           return this.get("event/"+id);
+           return this.get("event/"+idname);
         }
 
 

@@ -3,6 +3,7 @@ import { AuthService } from '../../common/auth.service';
 import {EventService}from '../../services/event.service';
 import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list-page',
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class EventListPageComponent implements OnInit {
  public events: Event[]=[];
 
-  constructor(public eventService: EventService,public authService: AuthService) {
+  constructor(public router: Router,public eventService: EventService,public authService: AuthService) {
 
   }
 
@@ -23,8 +24,8 @@ export class EventListPageComponent implements OnInit {
   }
 
 
-  detailFunc(eventId) {
-      sessionStorage.setItem("clickedEvent", eventId);
+  detailFunc(eventId,eventName) {
+      sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
       this.router.navigate(['/eventDetail']);
     }
 

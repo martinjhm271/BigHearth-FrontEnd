@@ -3,6 +3,7 @@ import { AuthService } from '../../common/auth.service';
 import {EventService}from '../../services/event.service';
 import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-detail-page',
@@ -13,7 +14,7 @@ export class EventDetailPageComponent implements OnInit {
  public events: Event[]=[];
  public volunteers: string[]=[];
 
-  constructor(public eventService: EventService,public authService: AuthService) {
+  constructor(public router: Router,public eventService: EventService,public authService: AuthService) {
 
   }
 
