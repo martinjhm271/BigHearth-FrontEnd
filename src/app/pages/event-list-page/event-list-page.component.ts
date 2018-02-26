@@ -5,22 +5,20 @@ import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-event-detail-page',
-  templateUrl: './event-detail-page.component.html'
+  selector: 'app-event-list-page',
+  templateUrl: './event-list-page.component.html'
 })
 
-export class EventDetailPageComponent implements OnInit {
+export class EventListPageComponent implements OnInit {
  public events: Event[]=[];
- public volunteers: string[]=[];
 
   constructor(public eventService: EventService,public authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.eventService.getEvent(0).subscribe(eventResponse=>{
-      this.events.push(eventResponse);
-      this.volunteers=eventResponse.volunteers;
+    this.eventService.getEvents().subscribe(eventResponse=>{
+      this.events=eventResponse;
     })
   }
 
