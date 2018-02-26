@@ -23,12 +23,12 @@ constructor(
 
 
   getEvents(): Observable<Event[]> {
-      return this.get("event");
-    }
-    getEvent( id: Number  ):Observable<Event>
-        {
-           return this.get("event/byId."+id);
-        }
+    return this.get("event");
+  }
+
+  getEvent( id: Number  ):Observable<Event>{
+    return this.get("event/byId."+id);
+  }
 
 
 }

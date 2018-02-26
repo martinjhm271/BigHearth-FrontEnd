@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class User {
-private username: string;
-private password: string;
-private mail: string;
-private state: string;
-private city: string;
-private address: string;
-private description: string;
-private interest: any[];
+public username: string;
+public password: string;
+public mail: string;
+public state: string;
+public city: string;
+public address: string;
+public description: string;
+public interest: any[];
 
 constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[]) {
          this.username = username;

@@ -18,6 +18,7 @@ import { EventDetailPageComponent } from './pages/event-detail-page/event-detail
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
+import { VolunteerProfConf } from './pages/volunteer-prof-conf/volunteer-prof-conf.component';
 
 
 
@@ -26,7 +27,9 @@ const ROUTES = [
      { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
      { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
+     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] },
      { path: '**', component: PageNotFoundComponent}
+     
 ]
 
 @NgModule({
@@ -36,7 +39,8 @@ const ROUTES = [
     SignInPageComponent,
     PageNotFoundComponent,
     NewEventPageComponent,
-    EventDetailPageComponent
+    EventDetailPageComponent,
+    VolunteerProfConf
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ const ROUTES = [
   providers: [
     {
       provide: INITIAL_CONFIG,
-      useValue: { apiURL: 'http://localhost:8080'}
+      useValue: { apiURL: 'http://192.168.0.8:8080'}
     },
     AuthService,
     AppDataService,

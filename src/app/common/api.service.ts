@@ -33,6 +33,13 @@ constructor(
       .catch(this.handleError);
   }
 
+  put(url: string, body: any, options?: any): Observable<any> {
+    return this.http
+      .put(`${this.config.apiURL}/${url}`, body, this.getRequestOptions(options))
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private getRequestOptions(options?: any) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     const innerOptions = new RequestOptions({ headers });

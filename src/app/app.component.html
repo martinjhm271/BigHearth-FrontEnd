@@ -16,6 +16,9 @@
                 <a class="nav-link" routerLinkActive="/eventDetail" routerLink="/eventDetail">Event Detail</a>
             </li>
             <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Volunteer Profile Config</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a href="#" class="nav-link" (click)="signOut()">(Sign Out)</a>
             </li>
         </ul>

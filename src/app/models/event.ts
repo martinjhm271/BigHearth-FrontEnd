@@ -10,10 +10,10 @@ export class Event {
      private type:string;
      private description:string;
      private eventDate:Date;
-     private image:Blob;
+     private image:String;
      private volunteers:Volunteer[];
 
-     constructor(id: Number,maxVolunteers:Number,name: string, type: string, description: string,eventDate:Date,image:Blob,volunteers:Volunteer[]) {
+     constructor(id: Number,maxVolunteers:Number,name: string, type: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[]) {
          this.id = id;
          this.maxVolunteers = maxVolunteers;
          this.name = name;

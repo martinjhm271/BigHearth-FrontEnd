@@ -21,7 +21,7 @@ constructor(
 
 
 
-  create(id: Number,maxVolunteers:Number,name:String,type:String,description:String,eventDate:Date,image:String,volunteers:any[]): Observable<Event> {
+  create(id: Number,maxVolunteers:Number,name:string,type:string,description:string,eventDate:Date,image:string,volunteers:any[]): Observable<Event> {
     return this.post(this.resourceUrl,new Event(id,maxVolunteers,name,type,description,eventDate,image,volunteers));
 
   }
