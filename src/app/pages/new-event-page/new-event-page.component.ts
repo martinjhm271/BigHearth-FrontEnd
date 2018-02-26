@@ -3,7 +3,7 @@ import {Router}from '@angular/router';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import { AuthService } from '../../common/auth.service';
 
-import { EventsService } from '../../services/events.service';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-new-event-page',
@@ -15,7 +15,7 @@ export class NewEventPageComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public eventService: EventsService,
+    public eventService: EventService,
     public formBuilder: FormBuilder,
     public router: Router,
   ) {
@@ -26,7 +26,7 @@ export class NewEventPageComponent implements OnInit {
     this.newEventForm = this.formBuilder.group({
       maxVolunteers:'',
       name:'',
-      type:'',
+      eventType:'',
       description:'',
       eventDate:'',
       image:''
@@ -38,7 +38,7 @@ export class NewEventPageComponent implements OnInit {
     this.eventService.create(0,
       this.newEventForm.get('maxVolunteers').value,
       this.newEventForm.get('name').value,
-      this.newEventForm.get('type').value,
+      this.newEventForm.get('eventType').value,
       this.newEventForm.get('description').value,
       this.newEventForm.get('eventDate').value,
       this.newEventForm.get('image').value,new Array()).subscribe(serverResponse=>{
