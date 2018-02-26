@@ -1,6 +1,6 @@
 import{Component, OnInit}from '@angular/core';
 import {Router}from '@angular/router';
-import {FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import { AuthService } from '../../common/auth.service';
 
 import { EventService } from '../../services/event.service';
@@ -12,6 +12,17 @@ import { EventService } from '../../services/event.service';
 })
 export class NewEventPageComponent implements OnInit {
   private newEventForm: FormGroup;
+  eventTypess = new FormControl();
+
+  toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
+                 'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
+  public eventTypes: object[]=[
+      {id: '1', name: 'AMBIENTAL'},{id: '2', name: 'COMUNITARIO'},
+      {id: '3', name: 'CULTURAL'},{id: '4', name: 'EDUCATIVO'},
+      {id: '5', name: 'INTERNACIONAL'},{id: '6', name: 'PROTECCIÓN CIVIL'},
+      {id: '7', name: 'DEPORTIVO'},{id: '8', name: 'SOCIO-SANITARIO'},
+      {id: '9', name: 'SOCIAL'},{id: '10', name: 'OCIO Y TIEMPO LIBRE'}
+    ]
 
   constructor(
     public authService: AuthService,
@@ -35,6 +46,9 @@ export class NewEventPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.eventTypess.value);
+    console.log(this.eventTypess.status);
+    console.log(this.newEventForm.get('eventType').value);
     this.eventService.create(0,
       this.newEventForm.get('maxVolunteers').value,
       this.newEventForm.get('name').value,
