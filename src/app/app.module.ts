@@ -16,6 +16,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
 import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
+import { RegisterVolunteerPageComponent } from './pages/register-volunteer-page/register-volunteer-page.component';
+import { RegisterOrganizationPageComponent } from './pages/register-organization-page/register-organization-page.component';
+import { SelectRolPageComponent } from './pages/select-rol-page/select-rol-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
@@ -28,6 +31,9 @@ const ROUTES = [
      { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
      { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService] },
+     { path: 'registerVolunteer', component: RegisterVolunteerPageComponent },
+     { path: 'registerOrganization', component: RegisterOrganizationPageComponent },
+     { path: 'selectRol', component: SelectRolPageComponent },
      { path: '**', component: PageNotFoundComponent}
 ]
 
@@ -39,6 +45,9 @@ const ROUTES = [
     PageNotFoundComponent,
     EventDetailPageComponent,
     EventListPageComponent,
+    RegisterVolunteerPageComponent,
+    RegisterOrganizationPageComponent,
+    SelectRolPageComponent,
     NewEventPageComponent
   ],
   imports: [
