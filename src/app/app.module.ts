@@ -52,7 +52,7 @@ const ROUTES = [
   providers: [
     {
       provide: INITIAL_CONFIG,
-      useValue: { apiURL: 'http://192.168.0.8:8080'}
+      useValue: { apiURL: 'http://localhost:8080'}
     },
     AuthService,
     AppDataService,

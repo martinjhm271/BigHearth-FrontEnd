@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <form [formGroup]="VolConfProfForm" (ngSubmit)="doUpdate()" novalidate>
         <div class="row" *ngIf="volunteer"> 
@@ -79,14 +81,14 @@
         </div>
 
         <div class="row">
-            <select class="mdb-select colorful-select dropdown-primary" multiple formControlName="interest" searchable="Search here..">
+            <select class="selectpicker" multiple data-selected-text-format="count > 3" searchable="Search here..">
                 <option value="" disabled selected>Choose your interest type event</option>
-                <option *ngFor="let typeEvent of toppingList" value={{typeEvent}}>{{typeEvent}}</option>
+                <option *ngFor="let typeEvent of toppingList" (click)="add(typeEvent)" value={{typeEvent}}>{{typeEvent}}</option>
             </select>
         </div>
 
         <div class="row">
-            <button type="submit" class="btn btn-success">Sign In</button>
+            <button type="submit" class="btn btn-success">Update profile</button>
 
             <p class="text-danger mt-1">{{updateError}}</p>
         </div>
