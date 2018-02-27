@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router, CanActivate } from '@angular/router';
+import { Router, CanActivate,ActivatedRouteSnapshot } from '@angular/router';
 
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { AppDataService } from '../common/app-data.service';
@@ -8,7 +8,8 @@ import { AppDataService } from '../common/app-data.service';
 @Injectable()
 export class AuthService implements CanActivate {
 
-    constructor(public router: Router, public appData: AppDataService) { }
+    constructor(public router: Router, public appData: AppDataService) { 
+    }
 
     public get accessToken(): string {
         return this.appData.accessToken;
@@ -16,6 +17,14 @@ export class AuthService implements CanActivate {
 
     public set accessToken(accessToken: string) {
         this.appData.accessToken = accessToken;
+    }
+
+    public get rol(): string {
+        return this.appData.rol;
+    }
+
+    public set rol(rol: string) {
+        this.appData.rol = rol;
     }
 
     public isLoggedIn(): boolean {
@@ -27,8 +36,12 @@ export class AuthService implements CanActivate {
         this.router.navigate(['']);
     }
 
-    public canActivate() {
-        if (!this.isLoggedIn()) {
+    public canActivate(route: ActivatedRouteSnapshot) {
+        const expectedRole = route.data.expectedRole;
+        var tokenPayload = this.appData.rol;
+        console.info(tokenPayload);
+        console.info(expectedRole);
+        if (!this.isLoggedIn() || tokenPayload !== expectedRole) {
             this.router.navigate(['']);
             return false;
         }

@@ -22,6 +22,7 @@ constructor(
     return this.post('user/login', { username, password }, { credentials: false }).map(loginResponse => {
       if (loginResponse) {
         this.authService.accessToken = loginResponse.accessToken;
+        this.authService.rol = loginResponse.rol;
       }
     });
   }

@@ -24,10 +24,10 @@ import { AuthService } from './common/auth.service';
 
 const ROUTES = [
      { path: '', component: SignInPageComponent },
-     { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
-     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
-     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
-     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService] },
+     { path: 'home', component: HomePageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation'}},
+     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation'}},
+     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation'}},
+     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organitation'}},
      { path: '**', component: PageNotFoundComponent}
 ]
 
