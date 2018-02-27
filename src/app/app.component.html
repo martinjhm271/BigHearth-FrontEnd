@@ -20,6 +20,10 @@
             </li>
 
             <li *ngIf="isLoggedIn()" class="nav-item">
+                    <a class="nav-link" routerLinkActive="/eventDetailOrg" routerLink="/eventDetailOrg">Event Detail ORG</a>
+                </li>
+
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a href="#" class="nav-link" (click)="signOut()">(Sign Out)</a>
             </li>
         </ul>

@@ -46,9 +46,6 @@ export class NewEventPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.eventTypess.value);
-    console.log(this.eventTypess.status);
-    console.log(this.newEventForm.get('eventType').value);
     this.eventService.create(0,
       this.newEventForm.get('maxVolunteers').value,
       this.newEventForm.get('name').value,

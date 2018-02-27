@@ -32,13 +32,20 @@
         <td (click)="detailFunc(volunteer)">{{volunteer}}</td>
     </tr>
 </table>
-<button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Emails to volunteer</button>
-<form class="form-inline my-2 my-lg-0">
+<form [formGroup]="newMessageEmail" (ngSubmit)="onSubmit()" novalidate>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
     <!-- Modal -->
     <ng-template #exampleModal>
-      <div class="modal-header">
-      </div>
-      <label for="description">Message for all volunteer</label>
-      <textarea  class="form-control" rows="5" id="description" formControlName="description" required></textarea>
+        <div class="modal-header">
+            <label for="email">Message for all volunteer</label>
+        </div>
+        <div class="modal-body">
+            <input  class="form-control mr-sm-2" type="text" placeholder="Subject" aria-label="Subject" formControlName="Subject" required>
+            <label for="email">Content</label>
+            <textarea   class="form-control" rows="5" id="email" formControlName="email" required></textarea>
+            <button type="submit" (click)="onSubmit()" class="btn btn-success">Create Event</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+        
     </ng-template>
-  </form>
+</form>

@@ -41,6 +41,8 @@ constructor(
         {
            return this.get(this.resourceUrl+"/"+idname);
         }
-
-
+    sendMailEvent(eventIdName:string,lista:string[]):Observable<Boolean>{
+      return this.post(this.resourceUrl+"/sendMailEvent/"+eventIdName,lista);
+    }
+  
 }

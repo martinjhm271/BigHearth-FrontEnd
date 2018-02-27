@@ -5,6 +5,7 @@ import { Event } from '../../models/event';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-event-detail-page-organitation',
@@ -12,18 +13,32 @@ import { Router } from '@angular/router';
 })
 
 export class EventDetailPageOrganitationComponent implements OnInit {  
- public volunteersEmails: string[]=[];
- private modalBody:string='';
+ private newMessageEmail: FormGroup;
+ public events: Event[]=[];
+ public volunteers: string[]=[];
 
-  constructor(private modalService: NgbModal,public router: Router,public eventService: EventService,public authService: AuthService) {
+  constructor(private modalService: NgbModal,
+    public formBuilder: FormBuilder,public router: Router,public eventService: EventService,public authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.eventService.getEmailUserOfEvent(sessionStorage.getItem("currentUser"),
-                                          sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
-      this.volunteersEmails=eventResponse;
+    this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
+      this.events.push(eventResponse);
+      this.volunteers=eventResponse.volunteers;
     })
+    this.newMessageEmail = this.formBuilder.group({
+      email:'',
+      Subject:''
+    });
+  }
+
+  onSubmit() {
+    this.eventService.sendMailEvent(sessionStorage.getItem("clickedEvent"),[this.newMessageEmail.get('Subject').value,this.newMessageEmail.get('email').value]).subscribe(serverResponse=>{
+        this.router.navigate(['/eventList']);
+    }, error=>{
+      console.log(error);
+    });
   }
 
   detailFunc(username) {
@@ -33,6 +48,7 @@ export class EventDetailPageOrganitationComponent implements OnInit {
 
 
   ver(modal){
+
     this.modalService.open(modal);
   }
   isLoggedIn() {
