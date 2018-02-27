@@ -1,0 +1,50 @@
+<h2>Event Detail</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Picture</th>
+        <th>Username</th>
+        <th>Mail</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Gender</th>
+        <th>Born Date</th>
+        <th>Hours</th>
+        <th>Volunteers Made</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let user of users">
+        <td><img [src]="user.image" width="150" height="150" /></td>
+        <td>{{user.image}}</td>
+        <td>{{user.mail}}</td>
+        <td>{{user.state}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.description}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.bornDate}}</td>
+        <td>{{user.hours}}</td>
+        <td>{{user.volunteersMade}}</td>
+
+    </tr>
+</table>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Event Logo</th>
+        <th>Event Name</th>
+        <th>Event Date</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let event of events">
+        <td>{{event.image}}</td>
+        <td (click)="detailFunc(event.eventId,event.eventId.name)">{{event.eventId.name}}</td>
+        <td>{{event.eventDate}}</td>
+    </tr>
+</table>

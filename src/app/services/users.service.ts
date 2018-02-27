@@ -31,6 +31,11 @@ constructor(
     });
   }
 
+  getUser(username : string){
+    return this.get('user/userByUserName/'+username);
+  }
+  
+
   updateVolunteer(volunteer : Volunteer){
     return this.put('user/modifyProfileVol',volunteer);
   }

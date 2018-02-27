@@ -22,7 +22,7 @@ constructor(
   }
 
   create(id: Number,maxVolunteers:Number,name:string,eventType:string,description:string,eventDate:Date,image:string,volunteers:any[]): Observable<Event> {
-    return this.post(this.resourceUrl,new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers));
+    return this.post(this.resourceUrl,new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers,"Test"));
 
   }
 

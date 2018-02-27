@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User} from '../models/user';
+import { Event} from '../models/event';
 
 @Injectable()
 export class Volunteer extends User{
@@ -10,8 +11,8 @@ export class Volunteer extends User{
         private hours: Number;
         private volunteersMade: Number;
 
-        constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[], image: string, name: string, lastname: string,gender: string,bornDate: Date,hours: Number,volunteersMade: Number) {
-                super(username,password,mail,state,city,address,description,interest,image);
+        constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[], image: string, name: string, lastname: string,gender: string,bornDate: Date,hours: Number,volunteersMade: Number,eventRegistered:Event[]) {
+                super(username,password,mail,state,city,address,description,interest,image,eventRegistered);
                 this.name = name;
                 this.lastname = lastname;
                 this.gender = gender;

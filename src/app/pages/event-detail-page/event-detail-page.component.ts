@@ -26,10 +26,15 @@ export class EventDetailPageComponent implements OnInit {
   }
 
   detailFunc(username) {
-      sessionStorage.setItem("clickedUser", username);
-      this.router.navigate(['/userDetails']);
+      sessionStorage.setItem("clickedVolunteer", username);
+      this.router.navigate(['/volunteerDetails']);
     }
-
+  
+  detailFunc2(organitation) {
+      sessionStorage.setItem("clickedOrganitation", organitation);
+      this.router.navigate(['/organitationDetails']);
+  }
+    
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

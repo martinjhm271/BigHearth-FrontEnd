@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
 import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
+import { OrganitationDetailPageComponent } from './pages/organitation-detail-page/organitation-detail-page.component';
+import { VolunteerDetailPageComponent } from './pages/volunteer-detail-page/volunteer-detail-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
@@ -29,6 +31,8 @@ const ROUTES = [
      { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation'}},
      { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] ,data: { expectedRole: 'Volunteer'}},
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation,Volunteer'}},
+     { path: 'organitationDetails', component: OrganitationDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation,Volunteer'}},
+     { path: 'volunteerDetails', component: VolunteerDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation,Volunteer'}},
      { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organitation,Volunteer'}},
      { path: '**', component: PageNotFoundComponent}
      
@@ -44,7 +48,9 @@ const ROUTES = [
     EventDetailPageComponent,
     EventListPageComponent,
     VolunteerProfConf,
-    NewEventPageComponent
+    NewEventPageComponent,
+    OrganitationDetailPageComponent,
+    VolunteerDetailPageComponent
   ],
   imports: [
     BrowserModule,
