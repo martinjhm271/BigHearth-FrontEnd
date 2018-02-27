@@ -15,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
+import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
@@ -24,10 +25,11 @@ import { VolunteerProfConf } from './pages/volunteer-prof-conf/volunteer-prof-co
 
 const ROUTES = [
      { path: '', component: SignInPageComponent },
-     { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
-     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
-     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
-     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] },
+     { path: 'home', component: HomePageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation,Volunteer'}},
+     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation'}},
+     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] ,data: { expectedRole: 'Volunteer'}},
+     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organitation,Volunteer'}},
+     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organitation,Volunteer'}},
      { path: '**', component: PageNotFoundComponent}
      
 ]
@@ -38,9 +40,11 @@ const ROUTES = [
     HomePageComponent,
     SignInPageComponent,
     PageNotFoundComponent,
-    NewEventPageComponent,
+
     EventDetailPageComponent,
-    VolunteerProfConf
+    EventListPageComponent,
+    VolunteerProfConf,
+    NewEventPageComponent
   ],
   imports: [
     BrowserModule,

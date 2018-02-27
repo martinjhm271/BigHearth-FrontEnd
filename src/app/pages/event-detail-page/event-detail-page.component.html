@@ -6,17 +6,17 @@
         <th>Id</th>
         <th>Max Of Volunteers</th>
         <th>Name</th>
-        <th>Type</th>
+        <th>Event Type</th>
         <th>Description</th>
         <th>Event Date</th>
     </tr>
     </thead>
     <tr *ngFor="let event of events">
         <td><img [src]="event.image" width="150" height="150" /></td>
-        <td>{{event.id}}</td>
+        <td>{{event.eventId.id}}</td>
         <td>{{event.maxVolunteers}}</td>
-        <td>{{event.name}}</td>
-        <td>{{event.type}}</td>
+        <td>{{event.eventId.name}}</td>
+        <td>{{event.eventType}}</td>
         <td>{{event.description}}</td>
         <td>{{event.eventDate}}</td>
 
@@ -25,12 +25,10 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>Image</th>
         <th>Username</th>
     </tr>
     </thead>
-    <tr *ngFor="let user of events.volunteers">
-        <td><img [src]="user.image" width="150" height="150" /></td>
-        <td>{{user.username}}</td>
+    <tr *ngFor="let volunteer of volunteers">
+        <td (click)="detailFunc(volunteer)">{{volunteer}}</td>
     </tr>
 </table>

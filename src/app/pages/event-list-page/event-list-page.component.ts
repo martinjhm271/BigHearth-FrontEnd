@@ -6,28 +6,27 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-event-detail-page',
-  templateUrl: './event-detail-page.component.html'
+  selector: 'app-event-list-page',
+  templateUrl: './event-list-page.component.html'
 })
 
-export class EventDetailPageComponent implements OnInit {
-  public events: Event[]=[];
-  public volunteers: string[]=[];
+export class EventListPageComponent implements OnInit {
+ public events: Event[]=[];
 
   constructor(public router: Router,public eventService: EventService,public authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
-      this.events.push(eventResponse);
-      this.volunteers=eventResponse.volunteers;
+    this.eventService.getEvents().subscribe(eventResponse=>{
+      this.events=eventResponse;
     })
   }
 
-  detailFunc(username) {
-      sessionStorage.setItem("clickedUser", username);
-      this.router.navigate(['/userDetails']);
+
+  detailFunc(eventId,eventName) {
+      sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
+      this.router.navigate(['/eventDetail']);
     }
 
   isLoggedIn() {

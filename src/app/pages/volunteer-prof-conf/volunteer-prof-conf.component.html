@@ -81,13 +81,19 @@
         </div>
 
         <div class="row">
-            <select class="selectpicker" multiple data-selected-text-format="count > 3" searchable="Search here..">
-                <option value="" disabled selected>Choose your interest type event</option>
-                <option *ngFor="let typeEvent of toppingList" (click)="add(typeEvent)" value={{typeEvent}}>{{typeEvent}}</option>
-            </select>
+            <div class="col-md-6 mv-3" *ngIf="volunteer">
+                <select class="selectpicker" multiple data-selected-text-format="count > 3" searchable="Search here..">
+                    <option value="" disabled selected>Choose your interest type event</option>
+                    <option *ngFor="let typeEvent of toppingList" (click)="add(typeEvent)" value={{typeEvent}}>{{typeEvent}}</option>
+                </select>
+            </div>
+            <div class="col-md-6 mv-3" *ngIf="volunteer">
+                <label for="image">Set Image</label>
+                <input type="text" class="form-control" id="image" formControlName="image" required>
+            </div>
         </div>
 
-        <div class="row">
+        <div class="wrapper">
             <button type="submit" class="btn btn-success">Update profile</button>
 
             <p class="text-danger mt-1">{{updateError}}</p>

@@ -10,8 +10,9 @@ public city: string;
 public address: string;
 public description: string;
 public interest: any[];
+public image: string;
 
-constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[]) {
+constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[], image:string) {
          this.username = username;
          this.password = password;
          this.mail = mail;
@@ -20,5 +21,6 @@ constructor(username: string, password: string,mail: string,state: string,city: 
          this.address = address;
          this.description = description;
          this.interest = interest;
+         this.image = image;
      }
  }

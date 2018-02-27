@@ -1,0 +1,17 @@
+<h2>Event Detail</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Logo</th>
+        <th>Id</th>
+        <th>Max Of Volunteers</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let event of events">
+        <td><img [src]="event.image" width="150" height="150" /></td>
+        <td (click)="detailFunc(event.eventId.id,event.eventId.name)">{{event.eventId.id}}</td>
+        <td>{{event.maxVolunteers}}</td>
+        <td>{{event.eventId.name}}</td>
+    </tr>
+</table>

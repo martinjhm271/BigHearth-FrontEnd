@@ -6,7 +6,8 @@ import { Volunteer } from '../../models/volunteer';
 
 @Component({
   selector: 'app-volunteer-prof-conf',
-  templateUrl: './volunteer-prof-conf.component.html'
+  templateUrl: './volunteer-prof-conf.component.html',
+  styleUrls: ['./volunteer-prof-conf.component.css']
 })
 
 export class VolunteerProfConf implements OnInit {
@@ -42,13 +43,15 @@ export class VolunteerProfConf implements OnInit {
             confirmpassword: '',
             description: '',
             hours: '',
-            interest: ''
+            image: ''
         });
     }
 
     add(typescript: string){
-        this.listTop.push(typescript);
-        console.log(this.listTop);
+        if(this.listTop.indexOf(typescript) == -1){
+            this.listTop.push(typescript);
+        }
+        
     }
 
     checkPassword(password: string): boolean{
@@ -56,12 +59,11 @@ export class VolunteerProfConf implements OnInit {
     }
 
     doUpdate(){
-        console.log(this.VolConfProfForm.get('interest').value);
         if(this.VolConfProfForm.get('password').value === this.VolConfProfForm.get('confirmpassword').value){
             if(this.checkPassword(this.VolConfProfForm.get('password').value)){
                 let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,
                 this.VolConfProfForm.get('email').value,this.VolConfProfForm.get('country').value,this.VolConfProfForm.get('state').value,
-                this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.VolConfProfForm.get('firstName').value,
+                this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.VolConfProfForm.get('image').value,this.VolConfProfForm.get('firstName').value,
                 this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,this.VolConfProfForm.get('borndate').value,
                 this.VolConfProfForm.get('hours').value,0);
 
