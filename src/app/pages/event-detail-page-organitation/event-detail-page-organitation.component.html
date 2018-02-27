@@ -32,3 +32,13 @@
         <td (click)="detailFunc(volunteer)">{{volunteer}}</td>
     </tr>
 </table>
+<button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Emails to volunteer</button>
+<form class="form-inline my-2 my-lg-0">
+    <!-- Modal -->
+    <ng-template #exampleModal>
+      <div class="modal-header">
+      </div>
+      <label for="description">Message for all volunteer</label>
+      <textarea  class="form-control" rows="5" id="description" formControlName="description" required></textarea>
+    </ng-template>
+  </form>

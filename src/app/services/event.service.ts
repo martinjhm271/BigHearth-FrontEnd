@@ -22,16 +22,24 @@ constructor(
   }
 
   create(id: Number,maxVolunteers:Number,name:string,eventType:string,description:string,eventDate:Date,image:string,volunteers:any[]): Observable<Event> {
-    return this.post(this.resourceUrl,new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers));
+    return this.post(this.resourceUrl,new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers),sessionStorage.getItem("currentUser"));
 
   }
 
+  getEventsByUser(username:string): Observable<Event[]>{
+    return this.get(this.resourceUrl+"/userEvents/"+username);
+  }
+
+  getEmailUserOfEvent(username:string,eventIdName:string):Observable<string[]>{
+    return this.get(this.resourceUrl+"/userEmailsEvents/"+username+"/"+eventIdName);
+  }
+
   getEvents(): Observable<Event[]> {
-      return this.get("event");
+      return this.get(this.resourceUrl);
     }
     getEvent( idname:string  ):Observable<Event>
         {
-           return this.get("event/"+idname);
+           return this.get(this.resourceUrl+"/"+idname);
         }
 
 
