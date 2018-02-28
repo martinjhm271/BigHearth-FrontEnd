@@ -15,11 +15,17 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
-import { EventDetailPageOrganizationComponent } from './pages/event-detail-page-organization/event-detail-page-organization.component';
 import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
+import { OrganizationDetailPageComponent } from './pages/organization-detail-page/organization-detail-page.component';
+import { VolunteerDetailPageComponent } from './pages/volunteer-detail-page/volunteer-detail-page.component';
+import { RegisterVolunteerPageComponent } from './pages/register-volunteer-page/register-volunteer-page.component';
+import { RegisterOrganizationPageComponent } from './pages/register-organization-page/register-organization-page.component';
+import { SelectRolPageComponent } from './pages/select-rol-page/select-rol-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
+import { VolunteerProfConf } from './pages/volunteer-prof-conf/volunteer-prof-conf.component';
+import { OrganizationProfConf } from './pages/organization-prof-conf/organization-prof-conf.component';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -27,11 +33,17 @@ import { AgmCoreModule } from '@agm/core';
 
 const ROUTES = [
      { path: '', component: SignInPageComponent },
-     { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
-     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
-     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
-     { path: 'eventDetailOrg', component: EventDetailPageOrganizationComponent,canActivate: [AuthService] },
-     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService] },
+     { path: 'home', component: HomePageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization'}},
+     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] ,data: { expectedRole: 'Volunteer'}},
+     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'organizationDetails', component: OrganizationDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'volunteerDetails', component: VolunteerDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'organizationProfConf', component: OrganizationProfConf,canActivate: [AuthService],data: { expectedRole: 'organization'}},
+     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'registerVolunteer', component: RegisterVolunteerPageComponent },
+     { path: 'registerOrganization', component: RegisterOrganizationPageComponent },
+     { path: 'selectRol', component: SelectRolPageComponent },
      { path: '**', component: PageNotFoundComponent}
 ]
 
@@ -43,9 +55,14 @@ const ROUTES = [
     PageNotFoundComponent,
     EventDetailPageComponent,
     EventListPageComponent,
-    NewEventPageComponent,
-    EventDetailPageOrganizationComponent
-    
+    VolunteerProfConf,
+    OrganizationDetailPageComponent,
+    VolunteerDetailPageComponent,
+    RegisterVolunteerPageComponent,
+    RegisterOrganizationPageComponent,
+    SelectRolPageComponent,
+    OrganizationProfConf,
+    NewEventPageComponent
   ],
   imports: [
     BrowserModule,

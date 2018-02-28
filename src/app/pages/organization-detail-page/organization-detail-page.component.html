@@ -1,0 +1,48 @@
+<h2>Organization Detail</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Picture</th>
+        <th>Username</th>
+        <th>Mail</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Business Name</th>
+        <th>Commercial Name</th>
+        <th>NIT</th>
+        <th>Volunteers Made</th>
+
+    </tr>
+    </thead>
+    <tr *ngFor="let user of users">
+        <td><img [src]="user.image" width="150" height="150" /></td>
+        <td>{{user.username}}</td>
+        <td>{{user.mail}}</td>
+        <td>{{user.state}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.description}}</td>
+        <td>{{user.businessName}}</td>
+        <td>{{user.commercialName}}</td>
+        <td>{{user.NIT}}</td>
+        <td>{{user.volunteersMade}}</td>
+
+    </tr>
+</table>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Event Logo</th>
+        <th>Event Name</th>
+        <th>Event Date</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let event of events">
+        <td><img [src]="event.image" width="150" height="150" /></td>
+        <td (click)="detailFunc(event.eventId.id,event.eventId.name)">{{event.eventId.name}}</td>
+        <td>{{event.eventDate}}</td>
+    </tr>
+    <button type="button" class="btn btn-success" routerLinkActive="/organizationProfConf" routerLink="/organizationProfConf">Edit</button>
+</table>

@@ -23,17 +23,18 @@ constructor(
   }
 
   create(id: Number,maxVolunteers:Number,name:string,eventType:string,description:string,eventDate:Date,image:string,volunteers:any[],localitation:Localitation): Observable<Event> {
-    return this.post(this.resourceUrl+"/"+sessionStorage.getItem("currentUser"),new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers,localitation));
-
+    return this.post(this.resourceUrl+"/"+sessionStorage.getItem("currentUser"),new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers,sessionStorage.getItem("currentUser"),localitation));
+                                                   
   }
 
-  getEventsByUser(username:string): Observable<Event[]>{
-    return this.get(this.resourceUrl+"/userEvents/"+username);
-  }
+    unrolUser(id:Number ,username: string):Observable<boolean>{
+      return this.post("event/unrol/"+id+"/"+username,null);
+    }
 
-  getEmailUserOfEvent(username:string,eventIdName:string):Observable<string[]>{
-    return this.get(this.resourceUrl+"/userEmailsEvents/"+username+"/"+eventIdName);
-  }
+    rol(evenId:string,username:string):Observable<boolean>{
+      console.log(evenId.substring(0,evenId.indexOf(".")));
+      return this.post("event/rol/"+evenId.substring(0,evenId.indexOf("."))+"/"+username,null);
+    }
 
   getEvents(): Observable<Event[]> {
       return this.get(this.resourceUrl);

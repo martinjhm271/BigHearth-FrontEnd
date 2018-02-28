@@ -3,7 +3,7 @@
     <thead>
     <tr>
         <th>Logo</th>
-        <th>Id</th>
+        <th>Realizado por</th>
         <th>Max Of Volunteers</th>
         <th>Name</th>
         <th>Event Type</th>
@@ -13,7 +13,7 @@
     </thead>
     <tr *ngFor="let event of events">
         <td><img [src]="event.image" width="150" height="150" /></td>
-        <td>{{event.eventId.id}}</td>
+        <td (click)="detailFunc2(event.organization)" >{{event.organization}}</td>
         <td>{{event.maxVolunteers}}</td>
         <td>{{event.eventId.name}}</td>
         <td>{{event.eventType}}</td>
@@ -22,10 +22,33 @@
 
     </tr>
 </table>
+<td><button *ngIf="isVolunteer()" type="button" class="btn btn-success" (click)="rol()">Rol</button></td>
+<form [formGroup]="newMessageEmail" *ngIf="!isVolunteer()" (ngSubmit)="onSubmit()" novalidate>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
+    <!-- Modal -->
+    <ng-template #exampleModal let-c="close">
+        <div class="modal-header">
+            <label for="email">Message for all volunteer</label>
+        </div>
+        <div class="modal-body">
+            <input  class="form-control mr-sm-2" type="text" placeholder="Subject" aria-label="Subject" formControlName="Subject" required>
+            <label for="email">Content</label>
+            <textarea   class="form-control" rows="5" id="email" formControlName="email" required></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" (click)="onSubmit()" class="btn btn-success">Send Message</button>
+            <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Cancel</button>
+
+          </div>
+        
+    </ng-template>
+</form>
+
+
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>Username</th>
+        <th>Current Volunteers</th>
     </tr>
     </thead>
     <tr *ngFor="let volunteer of volunteers">

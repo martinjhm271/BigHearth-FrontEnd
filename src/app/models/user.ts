@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import {Event} from '../models/event';
 
 @Injectable()
 export class User {
-private username: string;
-private password: string;
-private mail: string;
-private state: string;
-private city: string;
-private address: string;
-private description: string;
-private interest: any[];
+public username: string;
+public password: string;
+public mail: string;
+public state: string;
+public city: string;
+public address: string;
+public description: string;
+public interest: any[];
+public image: string;
+public eventRegistered:Event[]=[];
 
-constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[]) {
+constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[], image:string,eventRegistered:Event[]) {
          this.username = username;
          this.password = password;
          this.mail = mail;
@@ -20,5 +23,7 @@ constructor(username: string, password: string,mail: string,state: string,city: 
          this.address = address;
          this.description = description;
          this.interest = interest;
+         this.image = image;
+         this.eventRegistered=eventRegistered;
      }
  }

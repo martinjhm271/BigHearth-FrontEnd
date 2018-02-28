@@ -14,8 +14,9 @@ export class Event {
      private eventDate:Date;
      private image:string;
      public volunteers:string[];
+     public organization:string;
 
-     constructor(eventId: EventId,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:string[],localitation:Localitation) {
+     constructor(eventId: EventId,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:string[],organization:string,localitation:Localitation) {
          this.eventId = eventId;
          this.maxVolunteers = maxVolunteers;
          this.name = name;
@@ -25,6 +26,7 @@ export class Event {
          this.image = image;
          this.volunteers = volunteers;
          this.localitation=localitation;
+         this.organization=organization;
      }
 
  }

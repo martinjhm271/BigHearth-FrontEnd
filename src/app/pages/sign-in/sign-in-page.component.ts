@@ -13,12 +13,10 @@ export class SignInPageComponent implements OnInit {
   public signInForm: FormGroup;
 
 
-
-
-
     constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
 
      }
+
 
      ngOnInit() {
       this.signInForm = this.formBuilder.group({

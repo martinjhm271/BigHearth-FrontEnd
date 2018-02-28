@@ -47,8 +47,8 @@ export class NewEventPageComponent implements OnInit {
 
     });
   }
-
   onSubmit() {
+    console.log(this.newEventForm.get('name').value);
     this.eventService.create(0,
       this.newEventForm.get('maxVolunteers').value,
       this.newEventForm.get('name').value,
@@ -56,12 +56,10 @@ export class NewEventPageComponent implements OnInit {
       this.newEventForm.get('description').value,
       this.newEventForm.get('eventDate').value,
       this.newEventForm.get('image').value,new Array(),new Localitation(this.latitude,this.longitude)).subscribe(serverResponse=>{
-        this.router.navigate(['/']);
+        this.router.navigate(['/eventList']);
     }, error=>{
       console.log(error);
     });
-
-    this.router.navigate(['/']);
   }
 
   selectLocation(event){
