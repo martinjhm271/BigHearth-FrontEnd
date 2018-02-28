@@ -18,6 +18,9 @@
             <li *ngIf="isLoggedIn() && isRol('Volunteer')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Volunteer Profile Config</a>
             </li>
+            <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
+                <a class="nav-link" routerLinkActive="/organizationProfConf" routerLink="/organizationProfConf">Organization Profile Config</a>
+            </li>
             <li *ngIf="isLoggedIn() && isRol('All')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/eventList" routerLink="/eventList">Event List</a>
             </li>

@@ -9,7 +9,7 @@ export class Volunteer extends User{
         private gender: string;
         private bornDate: Date;
         private hours: Number;
-        private volunteersMade: Number;
+        public volunteersMade: Number;
 
         constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[],volunteersMade: Number,eventRegistered:Event[], name: string, lastname: string,gender: string,bornDate: Date,hours: Number, image: string) {
                 super(username,password,mail,state,city,address,description,interest,image,eventRegistered);
@@ -21,9 +21,7 @@ export class Volunteer extends User{
                 this.volunteersMade = volunteersMade;
         }
 
-        getVolunteersMade():Number{
-            return this.volunteersMade;
-        }
+      
 
 
 }

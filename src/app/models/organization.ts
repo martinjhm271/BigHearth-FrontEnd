@@ -4,10 +4,10 @@ import { Event} from '../models/event';
 
 @Injectable()
 export class Organization extends User{
-        private businessName: string;
+        public businessName: string;
         private commercialName: string;
         private NIT: Number;
-        private volunteersMade: Number;
+        public volunteersMade: Number;
 
         constructor(username: string, password: string,mail: string,state: string,city: string,address: string,description: string,interest: any[],volunteersMade: Number,eventRegistered:Event[], commercialName: string, businessName: string,NIT: Number, image: string) {
                 super(username,password,mail,state,city,address,description,interest,image,eventRegistered);
