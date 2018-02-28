@@ -1,5 +1,6 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4&callback=myMap"></script>
 <h2>Event Detail</h2>
+<div>
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -22,6 +23,7 @@
         <td>{{event.eventDate}}</td>
     </tr>
 </table>
+</div>
 
 
 <div class="form-group">
@@ -29,9 +31,9 @@
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
     </agm-map>
 </div>
-<td><button *ngIf="isVolunteer()" type="button" class="btn btn-success" (click)="rol()">Rol</button></td>
+<td><button *ngIf="isVolunteer()" type="button" class="button" (click)="rol()">Rol</button></td>
 <form [formGroup]="newMessageEmail" *ngIf="!isVolunteer()" (ngSubmit)="onSubmit()" novalidate>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
+    <button class="button" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
     <!-- Modal -->
     <ng-template #exampleModal let-c="close">
         <div class="modal-header">
@@ -43,7 +45,7 @@
             <textarea   class="form-control" rows="5" id="email" formControlName="email" required></textarea>
         </div>
         <div class="modal-footer">
-            <button type="submit" (click)="onSubmit()" class="btn btn-success">Send Message</button>
+            <button type="submit" (click)="onSubmit()" class="button">Send Message</button>
             <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Cancel</button>
 
           </div>

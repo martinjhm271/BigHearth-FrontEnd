@@ -3,12 +3,9 @@
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Big Heart </a>
+    <a class="navbar-brand" href="/home">Big Heart </a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <li *ngIf="isLoggedIn() && isRol('All')" class="nav-item">
-                <a class="nav-link" routerLinkActive="/home" routerLink="/home">Home</a>
-            </li>
             <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/newEvent" routerLink="/newEvent">New Event</a>
             </li>

@@ -1,5 +1,6 @@
 <h2>Volunteer Detail</h2>
-<table class="table table-bordered">
+<div>
+    <table class="table table-bordered">
     <thead>
     <tr>
         <th>Picture</th>
@@ -9,12 +10,6 @@
         <th>City</th>
         <th>Address</th>
         <th>Description</th>
-        <th>Name</th>
-        <th>Last name</th>
-        <th>Gender</th>
-        <th>Born Date</th>
-        <th>Hours</th>
-        <th>Volunteers Made</th>
     </tr>
     </thead>
     <tr *ngFor="let user of users">
@@ -25,15 +20,33 @@
         <td>{{user.city}}</td>
         <td>{{user.address}}</td>
         <td>{{user.description}}</td>
-        <td>{{user.name}}</td>
-        <td>{{user.lastname}}</td>
-        <td>{{user.gender}}</td>
-        <td>{{user.bornDate}}</td>
-        <td>{{user.hours}}</td>
-        <td>{{user.volunteersMade}}</td>
 
     </tr>
-</table>
+    </table>
+    <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Gender</th>
+                <th>Born Date</th>
+                <th>Hours</th>
+                <th>Volunteers Made</th>
+            </tr>
+            </thead>
+            <tr *ngFor="let user of users">
+                <td>{{user.name}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.bornDate}}</td>
+                <td>{{user.hours}}</td>
+                <td>{{user.volunteersMade}}</td>
+        
+            </tr>
+            </table>
+</div>
+<h2>My events</h2>
+
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -47,7 +60,7 @@
         <td><img [src]="event.image" width="150" height="150" /></td>
         <td (click)="detailFunc(event.eventId.id,event.eventId.name)">{{event.eventId.name}}</td>
         <td>{{event.eventDate}}</td>
-        <td><button type="button" class="btn btn-success" (click)="unrol(event.eventId.id)">Unrol</button></td>
+        <td><button type="button" class="button" (click)="unrol(event.eventId.id)">Unrol</button></td>
     </tr>
-    <button type="button" class="btn btn-success" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Edit</button>
+    <button type="button" class="button" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Edit</button>
 </table>
