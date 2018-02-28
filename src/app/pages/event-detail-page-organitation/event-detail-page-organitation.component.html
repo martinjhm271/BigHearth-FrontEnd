@@ -35,7 +35,7 @@
 <form [formGroup]="newMessageEmail" (ngSubmit)="onSubmit()" novalidate>
     <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
     <!-- Modal -->
-    <ng-template #exampleModal>
+    <ng-template #exampleModal let-c="close">
         <div class="modal-header">
             <label for="email">Message for all volunteer</label>
         </div>
@@ -43,9 +43,12 @@
             <input  class="form-control mr-sm-2" type="text" placeholder="Subject" aria-label="Subject" formControlName="Subject" required>
             <label for="email">Content</label>
             <textarea   class="form-control" rows="5" id="email" formControlName="email" required></textarea>
-            <button type="submit" (click)="onSubmit()" class="btn btn-success">Create Event</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
         </div>
+        <div class="modal-footer">
+            <button type="submit" (click)="onSubmit()" class="btn btn-success">Send Message</button>
+            <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Cancel</button>
+
+          </div>
         
     </ng-template>
 </form>

@@ -1,8 +1,8 @@
-import{Component, OnInit}from '@angular/core';
+import{Component, OnInit, ViewChild}from '@angular/core';
 import { AuthService } from '../../common/auth.service';
 import {EventService}from '../../services/event.service';
 import { Event } from '../../models/event';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
@@ -35,7 +35,7 @@ export class EventDetailPageOrganitationComponent implements OnInit {
 
   onSubmit() {
     this.eventService.sendMailEvent(sessionStorage.getItem("clickedEvent"),[this.newMessageEmail.get('Subject').value,this.newMessageEmail.get('email').value]).subscribe(serverResponse=>{
-        this.router.navigate(['/eventList']);
+      this.router.navigate(['/eventList']);
     }, error=>{
       console.log(error);
     });
@@ -48,9 +48,10 @@ export class EventDetailPageOrganitationComponent implements OnInit {
 
 
   ver(modal){
-
     this.modalService.open(modal);
   }
+
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

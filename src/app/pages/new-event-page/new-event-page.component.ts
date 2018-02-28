@@ -4,6 +4,7 @@ import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import { AuthService } from '../../common/auth.service';
 
 import { EventService } from '../../services/event.service';
+import { Localitation } from '../../models/Localitation';
 
 @Component({
   selector: 'app-new-event-page',
@@ -13,6 +14,8 @@ import { EventService } from '../../services/event.service';
 export class NewEventPageComponent implements OnInit {
   private newEventForm: FormGroup;
   eventTypess = new FormControl();
+  latitude= 4.6685;
+  longitude =-74.0913;
 
   toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
@@ -52,13 +55,18 @@ export class NewEventPageComponent implements OnInit {
       this.newEventForm.get('eventType').value,
       this.newEventForm.get('description').value,
       this.newEventForm.get('eventDate').value,
-      this.newEventForm.get('image').value,new Array()).subscribe(serverResponse=>{
+      this.newEventForm.get('image').value,new Array(),new Localitation(this.latitude,this.longitude)).subscribe(serverResponse=>{
         this.router.navigate(['/']);
     }, error=>{
       console.log(error);
     });
 
     this.router.navigate(['/']);
+  }
+
+  selectLocation(event){
+    this.latitude=event.coords.lat;
+    this.longitude=event.coords.lng;
   }
 
 isLoggedIn() {

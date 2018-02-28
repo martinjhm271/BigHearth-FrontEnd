@@ -21,6 +21,8 @@ import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 
 const ROUTES = [
@@ -43,13 +45,17 @@ const ROUTES = [
     EventListPageComponent,
     NewEventPageComponent,
     EventDetailPageOrganitationComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4'
+    })
   ],
   providers: [
     {

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4&callback=myMap"></script>
 <div class="container">
     <h2>Nuevo Voluntariado</h2>
     <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()" novalidate>
@@ -13,16 +14,15 @@
                                   </div>
                                           
                             <div class="form-group">
-                                
-                                <label for="eventType">eventType</label>
-                                <select placeholder="events" formControlname="eventTypess">
+                                <label for="eventType">Event Type</label>
+                                <select class="customer-select d-block w-100" id="eventType" formControlName="eventType" required>
+                                    <option value="">Choose...</option>
                                     <option *ngFor="let event of toppingList">{{event}}</option>
-                                </select> 
-                                <select class="form-control" id="eventType" formcontrolname="eventType" required >
-                                    <option selected>event Type</option>
-                                    <option *ngFor="let event of eventTypes" value="{{event.id}}">{{event.name}}</option>
                                 </select>
                             </div>
+                            <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="selectLocation($event)">
+                                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                            </agm-map>
                       </div>
                       <div class="col">
                             <div class="form-group">
