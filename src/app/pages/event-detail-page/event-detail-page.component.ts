@@ -36,6 +36,33 @@ export class EventDetailPageComponent implements OnInit {
 
   }
 
+  consultUserinEvent(username:string): boolean{
+    for (let volunteer of this.volunteers) {
+        if(volunteer === username){
+            return true;
+        }
+    }
+    return false;
+ }
+
+  isVolunteer():boolean{ 
+    return this.authService.rol=="Volunteer" && !this.consultUserinEvent(sessionStorage.getItem("currentUser"));
+  }
+  
+
+  rol(){
+    this.eventService.rol(sessionStorage.getItem("clickedEvent"),sessionStorage.getItem("currentUser")).subscribe(
+      eventResponse => {
+        if(eventResponse){
+          alert("User rol in event");
+          this.router.navigate(['/volunteerDetails']);
+        }else{
+          alert("User not could rol in event");
+        }
+      }
+    );
+  }
+
 
 
   isLoggedIn() {

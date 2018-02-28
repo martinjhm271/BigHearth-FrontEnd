@@ -23,7 +23,6 @@ export class VolunteerDetailPageComponent implements OnInit {
   ngOnInit() {
     if(sessionStorage.getItem("clickedUser")==null){
             this.userService.getUser(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
-                console.info(userResponse);
               this.users.push(userResponse);
               this.events=userResponse.eventRegistered;
             })
@@ -42,9 +41,13 @@ export class VolunteerDetailPageComponent implements OnInit {
   }
 
    unrol(id){
-        console.info("----------------------");
-        this.eventService.unrolUser(id,sessionStorage.getItem("currentUser"));
-        this.router.navigate(['/volunteerDetails']);
+        this.eventService.unrolUser(id,sessionStorage.getItem("currentUser")).subscribe(
+          response =>{
+            console.log(response);
+            window.location.reload();
+          }
+        );
+        
       }
 
   isLoggedIn() {
