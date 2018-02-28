@@ -1,43 +1,46 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4&callback=myMap"></script>
 <div class="container">
-    <h2>Nuevo Voluntariado</h2>
+    <h2>New Volunteer</h2>
     <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="row">
                 <div class="col">
                         <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">Name of Volunteer</label>
                                 <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter a name for volunteering" required>
                             </div>
                             <div class="form-group">
-                                    <label for="maxVolunteers">maxVolunteers</label>
+                                    <label for="maxVolunteers">Maximum of Volunteers</label>
                                     <input type="number" min="5" class="form-control" id="maxVolunteers" formControlName="maxVolunteers">
                                   </div>
                                           
                             <div class="form-group">
-                                <label for="eventType">Event Type</label>
+                                <label for="eventType">Volunteer Type</label>
                                 <select class="customer-select d-block w-100" id="eventType" formControlName="eventType" required>
                                     <option value="">Choose...</option>
                                     <option *ngFor="let event of toppingList">{{event}}</option>
                                 </select>
                             </div>
-                            <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="selectLocation($event)">
-                                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                            </agm-map>
+                            <div class="form-group">
+                                <label for="localitation">Ubication of volunteer</label>
+                                <agm-map id="localitation" [latitude]="latitude" [longitude]="longitude" (mapClick)="selectLocation($event)">
+                                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                                </agm-map>
+                                </div>
                       </div>
                       <div class="col">
                             <div class="form-group">
-                                    <label for="description">description</label>
+                                    <label for="description">description of Volunteer</label>
                                     <textarea  class="form-control" rows="5" id="description" formControlName="description" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="eventDate">eventDate</label>
+                                    <label for="eventDate">Volunteer Date</label>
                                     <input type="Date" class="form-control" id="eventDate" formControlName="eventDate" placeholder="yyyy/mm/dd" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">image</label>
+                                    <label for="image">imageof Voluteer</label>
                                     <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter a URL for the volunteer image" required>
                                 </div>
-                                <button type="submit" class="btn btn-success">Create Event</button>
+                                <button type="submit" class="btn btn-success">Create Volunteer</button>
                                 <button type="button" class="btn btn-danger">Cancel</button>
                       </div>
         </div>

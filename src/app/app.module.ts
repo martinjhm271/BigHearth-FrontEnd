@@ -15,7 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
 import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
-import { EventDetailPageOrganitationComponent } from './pages/event-detail-page-organitation/event-detail-page-organitation.component';
+import { EventDetailPageOrganizationComponent } from './pages/event-detail-page-organization/event-detail-page-organization.component';
 import { EventListPageComponent } from './pages/event-list-page/event-list-page.component';
 import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
@@ -30,7 +30,7 @@ const ROUTES = [
      { path: 'home', component: HomePageComponent,canActivate: [AuthService] },
      { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService] },
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService] },
-     { path: 'eventDetailOrg', component: EventDetailPageOrganitationComponent,canActivate: [AuthService] },
+     { path: 'eventDetailOrg', component: EventDetailPageOrganizationComponent,canActivate: [AuthService] },
      { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService] },
      { path: '**', component: PageNotFoundComponent}
 ]
@@ -44,7 +44,7 @@ const ROUTES = [
     EventDetailPageComponent,
     EventListPageComponent,
     NewEventPageComponent,
-    EventDetailPageOrganitationComponent
+    EventDetailPageOrganizationComponent
     
   ],
   imports: [

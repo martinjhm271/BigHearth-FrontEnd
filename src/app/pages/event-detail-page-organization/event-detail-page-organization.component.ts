@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-event-detail-page-organitation',
-  templateUrl: './event-detail-page-organitation.component.html'
+  selector: 'app-event-detail-page-organization',
+  templateUrl: './event-detail-page-organization.component.html'
 })
 
-export class EventDetailPageOrganitationComponent implements OnInit {  
+export class EventDetailPageOrganizationComponent implements OnInit {  
  private newMessageEmail: FormGroup;
  public events: Event[]=[];
  public volunteers: string[]=[];
