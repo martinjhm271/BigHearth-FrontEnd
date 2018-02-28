@@ -12,14 +12,11 @@
             <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/newEvent" routerLink="/newEvent">New Event</a>
             </li>
-            <li *ngIf="isLoggedIn() && isRol('All')" class="nav-item">
-                <a class="nav-link" routerLinkActive="/eventDetail" routerLink="/eventDetail">Event Detail</a>
-            </li>
             <li *ngIf="isLoggedIn() && isRol('Volunteer')" class="nav-item">
-                <a class="nav-link" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Volunteer Profile Config</a>
+                <a class="nav-link" routerLinkActive="/volunteerDetails" routerLink="/volunteerDetails">My Profile</a>
             </li>
             <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
-                <a class="nav-link" routerLinkActive="/organizationProfConf" routerLink="/organizationProfConf">Organization Profile Config</a>
+                <a class="nav-link" routerLinkActive="/organizationDetails" routerLink="/organizationDetails">My Profile</a>
             </li>
             <li *ngIf="isLoggedIn() && isRol('All')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/eventList" routerLink="/eventList">Event List</a>

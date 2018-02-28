@@ -4,7 +4,7 @@ import { EventId } from './EventId';
 @Injectable()
 export class Event {
 
-    private eventId: EventId;
+    public eventId: EventId;
      private maxVolunteers: Number;
      private name:string;
      private eventType:string;

@@ -26,6 +26,11 @@ constructor(
 
   }
 
+    unrolUser(id:Number ,username: string):Observable<boolean>{
+        console.info("entro");
+        return this.post("event/unrol",id,username);
+    }
+
   getEvents(): Observable<Event[]> {
       return this.get("event");
     }

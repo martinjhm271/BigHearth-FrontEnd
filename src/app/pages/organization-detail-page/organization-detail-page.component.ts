@@ -20,15 +20,25 @@ export class OrganizationDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser(sessionStorage.getItem("clickedOrganization")).subscribe(userResponse=>{
-      this.users.push(userResponse);
-      this.events=userResponse.eventRegistered;
-    })
+    if(sessionStorage.getItem("clickedUser")==null){
+        this.userService.getUser(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+          this.users.push(userResponse);
+          this.events=userResponse.eventRegistered;
+          console.info(userResponse);
+        })
+    }else{
+        this.userService.getUser(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
+        console.info("2");
+                  this.users.push(userResponse);
+                  this.events=userResponse.eventRegistered;
+                })
+    }
+
   }
 
   detailFunc(eventId,eventName) {
       sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
-      this.router.navigate(['/eventDetails']);
+      this.router.navigate(['/eventDetail']);
     }
 
   isLoggedIn() {

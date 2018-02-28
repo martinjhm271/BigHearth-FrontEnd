@@ -33,8 +33,11 @@ export class EventDetailPageComponent implements OnInit {
   detailFunc2(organization) {
       sessionStorage.setItem("clickedOrganization", organization);
       this.router.navigate(['/organizationDetails']);
+
   }
-    
+
+
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

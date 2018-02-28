@@ -11,7 +11,7 @@ import { Organization } from '../../models/organization';
   styleUrls: ['./organization-prof-conf.component.css']
 })
 
-export class OrganitationProfConf implements OnInit {
+export class OrganizationProfConf implements OnInit {
     public OrgConfProfForm: FormGroup;
     public organization: Organization;
     public updateError: string;

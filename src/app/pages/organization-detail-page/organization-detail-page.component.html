@@ -1,4 +1,4 @@
-<h2>Event Detail</h2>
+<h2>Organization Detail</h2>
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -18,7 +18,7 @@
     </thead>
     <tr *ngFor="let user of users">
         <td><img [src]="user.image" width="150" height="150" /></td>
-        <td>{{user.image}}</td>
+        <td>{{user.username}}</td>
         <td>{{user.mail}}</td>
         <td>{{user.state}}</td>
         <td>{{user.city}}</td>
@@ -40,8 +40,9 @@
     </tr>
     </thead>
     <tr *ngFor="let event of events">
-        <td>{{event.image}}</td>
-        <td (click)="detailFunc(event.eventId,event.eventName)">{{event.name}}</td>
+        <td><img [src]="event.image" width="150" height="150" /></td>
+        <td (click)="detailFunc(event.eventId.id,event.eventId.name)">{{event.eventId.name}}</td>
         <td>{{event.eventDate}}</td>
     </tr>
+    <button type="button" class="btn btn-success" routerLinkActive="/organizationProfConf" routerLink="/organizationProfConf">Edit</button>
 </table>

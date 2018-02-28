@@ -42,8 +42,8 @@ constructor(
     return this.put('user/modifyProfileVol',volunteer);
   }
 
-  updateOrganization(organitation : Organization){
-    return this.put('user/modifyProfileOrg',organitation);
+  updateOrganization(organization : Organization){
+    return this.put('user/modifyProfileOrg',organization);
   }
 
   createVolunteer(username: string, password: string,mail: string,state: string,city: string,address: string,name: string, lastname: string,gender: string,bornDate: Date) {
