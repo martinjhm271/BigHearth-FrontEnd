@@ -23,7 +23,6 @@ export class VolunteerProfConf implements OnInit {
         usersService.getUser(sessionStorage.getItem("currentUser")).subscribe(
             volg => {
                 this.volunteer = volg;
-                console.log(this.volunteer);
             }
         );
     }
@@ -59,10 +58,10 @@ export class VolunteerProfConf implements OnInit {
     }
 
     doUpdate(){
-        if(this.VolConfProfForm.get('password').value === this.VolConfProfForm.get('confirmpassword').value){
+        if(this.VolConfProfForm.get('password').value === this.VolConfProfForm.get('confirmPassword').value){
             if(this.checkPassword(this.VolConfProfForm.get('password').value)){
-                let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,this.VolConfProfForm.get('mail').value,
-                this.VolConfProfForm.get('state').value,this.VolConfProfForm.get('city').value,this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.volunteer.getVolunteersMade(),this.volunteer.eventRegistered,this.VolConfProfForm.get('firstName').value,this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,
+                let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,this.VolConfProfForm.get('email').value,
+                this.VolConfProfForm.get('state').value,this.VolConfProfForm.get('city').value,this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.volunteer.volunteersMade,this.volunteer.eventRegistered,this.VolConfProfForm.get('firstName').value,this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,
                 this.VolConfProfForm.get('bornDate').value,this.VolConfProfForm.get('hours').value,this.VolConfProfForm.get('image').value);
 
                 this.usersService.updateVolunteer(volunteerUpdate).subscribe(responde =>{

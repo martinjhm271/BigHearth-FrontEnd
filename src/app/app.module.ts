@@ -25,6 +25,7 @@ import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './common/auth.service';
 import { VolunteerProfConf } from './pages/volunteer-prof-conf/volunteer-prof-conf.component';
+import { OrganitationProfConf } from './pages/organization-prof-conf/organization-prof-conf.component';
 
 
 
@@ -36,6 +37,7 @@ const ROUTES = [
      { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
      { path: 'organizationDetails', component: OrganizationDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
      { path: 'volunteerDetails', component: VolunteerDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'organizationProfConf', component: OrganitationProfConf,canActivate: [AuthService],data: { expectedRole: 'organization'}},
      { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organization,Volunteer'}},
      { path: 'registerVolunteer', component: RegisterVolunteerPageComponent },
      { path: 'registerOrganization', component: RegisterOrganizationPageComponent },
@@ -57,6 +59,7 @@ const ROUTES = [
     RegisterVolunteerPageComponent,
     RegisterOrganizationPageComponent,
     SelectRolPageComponent,
+    OrganitationProfConf,
     NewEventPageComponent
   ],
   imports: [

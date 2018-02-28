@@ -30,7 +30,9 @@ export class AppComponent {
       if(roles.length === 3){
         return true;
       }else{
-        return roles.indexOf(this.authService.rol) > 1;
+        console.info("authService"+this.authService.rol);
+        console.info(roles);
+        return roles.indexOf(this.authService.rol) >= 0;
       }
        
     }

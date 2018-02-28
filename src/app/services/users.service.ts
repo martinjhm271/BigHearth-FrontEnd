@@ -42,8 +42,8 @@ constructor(
     return this.put('user/modifyProfileVol',volunteer);
   }
 
-  getVolunteer():Observable<Volunteer>{
-    return this.get('user/volunteer');
+  updateOrganization(organitation : Organization){
+    return this.put('user/modifyProfileOrg',organitation);
   }
 
   createVolunteer(username: string, password: string,mail: string,state: string,city: string,address: string,name: string, lastname: string,gender: string,bornDate: Date) {
