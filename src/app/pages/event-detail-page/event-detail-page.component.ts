@@ -30,9 +30,9 @@ export class EventDetailPageComponent implements OnInit {
       this.router.navigate(['/volunteerDetails']);
     }
   
-  detailFunc2(organitation) {
-      sessionStorage.setItem("clickedOrganitation", organitation);
-      this.router.navigate(['/organitationDetails']);
+  detailFunc2(organization) {
+      sessionStorage.setItem("clickedOrganization", organization);
+      this.router.navigate(['/organizationDetails']);
   }
     
   isLoggedIn() {

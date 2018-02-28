@@ -7,11 +7,11 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-organitation-detail-page',
-  templateUrl: './organitation-detail-page.component.html'
+  selector: 'app-organization-detail-page',
+  templateUrl: './organization-detail-page.component.html'
 })
 
-export class OrganitationDetailPageComponent implements OnInit {
+export class OrganizationDetailPageComponent implements OnInit {
   public users: User[]=[];
   public events: Event[]=[];
 
@@ -20,7 +20,7 @@ export class OrganitationDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser(sessionStorage.getItem("clickedOrganitation")).subscribe(userResponse=>{
+    this.userService.getUser(sessionStorage.getItem("clickedOrganization")).subscribe(userResponse=>{
       this.users.push(userResponse);
       this.events=userResponse.eventRegistered;
     })

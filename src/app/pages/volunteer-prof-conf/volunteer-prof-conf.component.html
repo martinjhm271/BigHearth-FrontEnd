@@ -1,15 +1,13 @@
-
-
 <div class="container">
     <form [formGroup]="VolConfProfForm" (ngSubmit)="doUpdate()" novalidate>
-        <div class="row" *ngIf="volunteer"> 
+        <div class="row" *ngIf="volunteer">
             <div class="col-md-6 mv-3">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder={{volunteer.name}} required>
             </div>
             <div class="col-md-6 mv-3">
-                    <label for="lastName">Last name</label>
-                    <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder={{volunteer.lastname}} required>
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder={{volunteer.lastname}} required>
             </div>
         </div>
 
@@ -31,7 +29,7 @@
             </div>
             <div class="col-md-6 mv-3">
                 <label for="borndate">Born date</label>
-                <input type="date" class="form-control" id="borndate" formControlName="borndate" required>
+                <input type="date" class="form-control" id="borndate" formControlName="bornDate" required>
             </div>
         </div>
 
@@ -41,19 +39,19 @@
                 <input type="text" class="form-control" id="address" formControlName="address" placeholder="{{volunteer.address}}" required>
             </div>
             <div class="col-md-4 mb-3">
-                    <label for="Country">Country</label>
-                    <select class="customer-select d-block w-100" id="country" formControlName="country" required>
-                        <option value="">Choose...</option>
-                        <option>Colombia</option>
-                        <option>United States</option>
-                    </select>
-                </div>
-            <div class="col-md-3 mb-3">
                 <label for="state">State</label>
                 <select class="customer-select d-block w-100" id="state" formControlName="state" required>
                     <option value="">Choose...</option>
+                    <option>Cundinamarca</option>
+                    <option>Santander</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="city">City</label>
+                <select class="customer-select d-block w-100" id="city" formControlName="city" required>
+                    <option value="">Choose...</option>
                     <option>Bogotá</option>
-                    <option>Medellín</option>
+                    <option>Bucaramanga</option>
                 </select>
             </div>
         </div>
@@ -65,7 +63,7 @@
             </div>
             <div class="col-md-6 mv-3">
                 <label for="confirmPassword">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" formControlName="confirmpassword" required>
+                <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" required>
             </div>
         </div>
 
@@ -99,7 +97,7 @@
             <p class="text-danger mt-1">{{updateError}}</p>
         </div>
 
-        
+
 
     </form>
 

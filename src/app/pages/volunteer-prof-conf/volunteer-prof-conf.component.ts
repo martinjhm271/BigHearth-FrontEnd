@@ -20,7 +20,7 @@ export class VolunteerProfConf implements OnInit {
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
 
     constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
-        usersService.getVolunteer().subscribe(
+        usersService.getUser(sessionStorage.getItem("currentUser")).subscribe(
             volg => {
                 this.volunteer = volg;
                 console.log(this.volunteer);
@@ -35,12 +35,12 @@ export class VolunteerProfConf implements OnInit {
             userName: '',
             email: '',
             gender: '',
-            borndate: '',
+            bornDate: '',
             address: '',
-            country: '',
             state: '',
+            city: '',
             password: '',
-            confirmpassword: '',
+            confirmPassword: '',
             description: '',
             hours: '',
             image: ''
@@ -51,7 +51,7 @@ export class VolunteerProfConf implements OnInit {
         if(this.listTop.indexOf(typescript) == -1){
             this.listTop.push(typescript);
         }
-        
+
     }
 
     checkPassword(password: string): boolean{
@@ -61,11 +61,9 @@ export class VolunteerProfConf implements OnInit {
     doUpdate(){
         if(this.VolConfProfForm.get('password').value === this.VolConfProfForm.get('confirmpassword').value){
             if(this.checkPassword(this.VolConfProfForm.get('password').value)){
-                let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,
-                this.VolConfProfForm.get('email').value,this.VolConfProfForm.get('country').value,this.VolConfProfForm.get('state').value,
-                this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.VolConfProfForm.get('image').value,this.VolConfProfForm.get('firstName').value,
-                this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,this.VolConfProfForm.get('borndate').value,
-                this.VolConfProfForm.get('hours').value,0);
+                let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,this.VolConfProfForm.get('mail').value,
+                this.VolConfProfForm.get('state').value,this.VolConfProfForm.get('city').value,this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.volunteer.getVolunteersMade(),this.volunteer.eventRegistered,this.VolConfProfForm.get('firstName').value,this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,
+                this.VolConfProfForm.get('bornDate').value,this.VolConfProfForm.get('hours').value,this.VolConfProfForm.get('image').value);
 
                 this.usersService.updateVolunteer(volunteerUpdate).subscribe(responde =>{
                     this.router.navigate(['/']);
