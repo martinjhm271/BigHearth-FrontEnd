@@ -19,6 +19,8 @@ export class EventDetailPageComponent implements OnInit {
   private newMessageEmail: FormGroup;
   public events: Event[]=[];
   public volunteers: string[]=[];
+  public latitude:Number= 4.6685;
+  public longitude:Number=-74.0913;
 
   constructor(public formBuilder: FormBuilder,private modalService: NgbModal,public router: Router,public eventService: EventService,public authService: AuthService) {
 
@@ -28,6 +30,8 @@ export class EventDetailPageComponent implements OnInit {
     this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
       this.events.push(eventResponse);
       this.volunteers=eventResponse.volunteers;
+      this.latitude=eventResponse.localitation.latitude;
+      this.longitude=eventResponse.localitation.longitude;
     })
     this.newMessageEmail = this.formBuilder.group({
       email:'',
@@ -52,6 +56,11 @@ export class EventDetailPageComponent implements OnInit {
       sessionStorage.setItem("clickedOrganization", organization);
       this.router.navigate(['/organizationDetails']);
 
+  }
+
+  selectLocation(event){
+    this.latitude=event.coords.lat;
+    this.longitude=event.coords.lng;
   }
 
   ver(modal){

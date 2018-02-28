@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4&callback=myMap"></script>
 <h2>Event Detail</h2>
 <table class="table table-bordered">
     <thead>
@@ -19,9 +20,15 @@
         <td>{{event.eventType}}</td>
         <td>{{event.description}}</td>
         <td>{{event.eventDate}}</td>
-
     </tr>
 </table>
+
+
+<div class="form-group">
+    <agm-map id="localitation" [latitude]="latitude" [longitude]="longitude" >
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+</div>
 <td><button *ngIf="isVolunteer()" type="button" class="btn btn-success" (click)="rol()">Rol</button></td>
 <form [formGroup]="newMessageEmail" *ngIf="!isVolunteer()" (ngSubmit)="onSubmit()" novalidate>
     <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>

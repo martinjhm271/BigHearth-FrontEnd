@@ -40,10 +40,7 @@ export class AuthService implements CanActivate {
     public canActivate(route: ActivatedRouteSnapshot) {
         const expectedRole = route.data.expectedRole;
         var tokenPayload = this.appData.rol;
-        console.log(this.isLoggedIn());
-        console.log(expectedRole.indexOf(tokenPayload));
-        console.log(expectedRole);
-        console.log(tokenPayload);
+        
         if (!this.isLoggedIn() ||  expectedRole.indexOf(tokenPayload) === -1 ) {
             this.router.navigate(['']);
             return false;

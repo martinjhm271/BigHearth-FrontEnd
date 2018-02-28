@@ -5,3 +5,6 @@
   .dark-modal .close {
     color: white;   
   }
+  agm-map{
+    height: 200px;
+}

@@ -6,7 +6,7 @@ import { Localitation } from './Localitation';
 export class Event {
 
     private eventId: EventId;
-    private localitation: Localitation;
+    public localitation: Localitation;
      private maxVolunteers: Number;
      private name:string;
      private eventType:string;

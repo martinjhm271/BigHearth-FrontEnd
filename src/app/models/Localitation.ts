@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class Localitation {
 
-    private latitude: Number;
-     private longitude:Number;
+    public latitude: Number;
+     public longitude:Number;
      
 
      constructor(latitude: Number, longitude:Number) {
