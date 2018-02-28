@@ -2,36 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="914283a8-d71b-42cd-86e0-d0e22391ae55" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/models/organization.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" afterPath="$PROJECT_DIR$/src/app/app.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/event.ts" afterPath="$PROJECT_DIR$/src/app/models/event.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/organitation.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/volunteer.ts" afterPath="$PROJECT_DIR$/src/app/models/volunteer.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/event-detail-page/event-detail-page.component.html" afterPath="$PROJECT_DIR$/src/app/pages/event-detail-page/event-detail-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/event-detail-page/event-detail-page.component.ts" afterPath="$PROJECT_DIR$/src/app/pages/event-detail-page/event-detail-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/organitation-detail-page.component.css" afterPath="$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.css" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/organitation-detail-page.component.html" afterPath="$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/organitation-detail-page.component.ts" afterPath="$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/volunteer-detail-page/volunteer-detail-page.component.css" afterPath="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.css" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/volunteer-detail-page/volunteer-detail-page.component.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/organitation-detail-page/volunteer-detail-page/volunteer-detail-page.component.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/sign-in/sign-in-page.component.html" afterPath="$PROJECT_DIR$/src/app/pages/sign-in/sign-in-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/sign-in/sign-in-page.component.ts" afterPath="$PROJECT_DIR$/src/app/pages/sign-in/sign-in-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html" afterPath="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts" afterPath="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/users.service.ts" afterPath="$PROJECT_DIR$/src/app/services/users.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html" afterPath="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html" afterPath="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,71 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="volunteer-prof-conf.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts">
+      <file leaf-file-name="register-volunteer-page.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization-detail-page.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization-detail-page.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/models/user.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="volunteer-prof-conf.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organization-detail-page.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="67" lean-forward="false" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+            <state relative-caret-position="689">
+              <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -115,14 +30,14 @@
       <file leaf-file-name="volunteer-detail-page.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-detail-page/volunteer-detail-page.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="49" column="8" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="8" />
+            <state relative-caret-position="325">
+              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="167">
@@ -142,6 +57,56 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="register-organization-page.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="661">
+              <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register-organization-page.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="668">
+              <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/common/auth.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="volunteer-prof-conf.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1491">
+              <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register-volunteer-page.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="682">
+              <caret line="51" column="58" lean-forward="false" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -156,6 +121,7 @@
       <find>organitation</find>
       <find>Organitation</find>
       <find>get</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>organization</replace>
@@ -212,10 +178,6 @@
         <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.html" />
         <option value="$PROJECT_DIR$/src/app/app.component.spec.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html" />
-        <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html" />
         <option value="$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.html" />
         <option value="$PROJECT_DIR$/src/app/pages/sign-in/sign-in-page.component.html" />
         <option value="$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.ts" />
@@ -230,6 +192,10 @@
         <option value="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html" />
         <option value="$PROJECT_DIR$/src/app/models/volunteer.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html" />
+        <option value="$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html" />
       </list>
     </option>
   </component>
@@ -292,6 +258,37 @@
               <item name="BigHearth-FrontEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigHearth-FrontEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigHearth-FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigHearth-FrontEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigHearth-FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="register-organization-page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigHearth-FrontEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigHearth-FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="register-volunteer-page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigHearth-FrontEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigHearth-FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="volunteer-prof-conf" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -535,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/common/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/common/app-data.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -637,22 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="49" column="61" lean-forward="false" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/pages/select-rol-page/select-rol-page.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -677,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -705,14 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -789,34 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-detail-page/volunteer-detail-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="49" column="8" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -829,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/volunteer.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -845,18 +771,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/organization-detail-page/organization-detail-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/users.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1281">
+          <caret line="61" column="109" lean-forward="true" selection-start-line="61" selection-start-column="109" selection-end-line="61" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-detail-page/volunteer-detail-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/common/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/volunteer-prof-conf/volunteer-prof-conf.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/register-volunteer-page/register-volunteer-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="51" column="58" lean-forward="false" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/register-organization-page/register-organization-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
           <folding />
         </state>
       </provider>
