@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '../../services/users.service';
+import { VolunteerService } from '../../services/volunteer.service';
 import { Volunteer } from '../../models/volunteer';
 
 @Component({
@@ -19,8 +19,8 @@ export class VolunteerProfConf implements OnInit {
     toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
 
-    constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
-        usersService.getUser(sessionStorage.getItem("currentUser")).subscribe(
+    constructor(public formBuilder:FormBuilder,public volunteerService: VolunteerService,public router: Router) {
+        volunteerService.getVolunteerByEmail(sessionStorage.getItem("currentUser")).subscribe(
             volg => {
                 this.volunteer = volg;
             }
@@ -31,8 +31,6 @@ export class VolunteerProfConf implements OnInit {
         this.VolConfProfForm = this.formBuilder.group({
             firstName: '',
             lastName: '',
-            userName: '',
-            email: '',
             gender: '',
             bornDate: '',
             address: '',
@@ -41,7 +39,6 @@ export class VolunteerProfConf implements OnInit {
             password: '',
             confirmPassword: '',
             description: '',
-            hours: '',
             image: ''
         });
     }
@@ -54,17 +51,27 @@ export class VolunteerProfConf implements OnInit {
     }
 
     checkPassword(password: string): boolean{
-        return (this.VolConfProfForm.get('password').value.length > 4);
+        return (this.VolConfProfForm.get('password').value.length >= 0);
     }
 
     doUpdate(){
         if(this.VolConfProfForm.get('password').value === this.VolConfProfForm.get('confirmPassword').value){
             if(this.checkPassword(this.VolConfProfForm.get('password').value)){
-                let volunteerUpdate: Volunteer = new Volunteer(this.volunteer.username,this.VolConfProfForm.get('password').value,this.VolConfProfForm.get('email').value,
-                this.VolConfProfForm.get('state').value,this.VolConfProfForm.get('city').value,this.VolConfProfForm.get('address').value,this.VolConfProfForm.get('description').value,this.listTop,this.volunteer.volunteersMade,this.volunteer.eventRegistered,this.VolConfProfForm.get('firstName').value,this.VolConfProfForm.get('lastName').value,this.VolConfProfForm.get('gender').value,
-                this.VolConfProfForm.get('bornDate').value,this.VolConfProfForm.get('hours').value,this.VolConfProfForm.get('image').value);
 
-                this.usersService.updateVolunteer(volunteerUpdate).subscribe(responde =>{
+                let volunteerUpdate: Volunteer = this.volunteer;
+
+                if(this.VolConfProfForm.get('firstName').value!=''){volunteerUpdate.firstName=this.VolConfProfForm.get('firstName').value}
+                if(this.VolConfProfForm.get('lastName').value!=''){volunteerUpdate.lastName=this.VolConfProfForm.get('lastName').value}
+                if(this.VolConfProfForm.get('gender').value!=''){volunteerUpdate.gender=this.VolConfProfForm.get('gender').value}
+                if(this.VolConfProfForm.get('bornDate').value!=''){volunteerUpdate.bornDate=this.VolConfProfForm.get('bornDate').value}
+                if(this.VolConfProfForm.get('address').value!=''){volunteerUpdate.address=this.VolConfProfForm.get('address').value}
+                if(this.VolConfProfForm.get('state').value!=''){volunteerUpdate.state=this.VolConfProfForm.get('state').value}
+                if(this.VolConfProfForm.get('city').value!=''){volunteerUpdate.city=this.VolConfProfForm.get('city').value}
+                if(this.VolConfProfForm.get('password').value!=''){volunteerUpdate.password=this.VolConfProfForm.get('password').value}
+                if(this.VolConfProfForm.get('description').value!=''){volunteerUpdate.description=this.VolConfProfForm.get('description').value}
+                if(this.VolConfProfForm.get('image').value!=''){volunteerUpdate.image=this.VolConfProfForm.get('image').value}
+
+                this.volunteerService.updateVolunteer(volunteerUpdate).subscribe(responde =>{
                     this.router.navigate(['/']);
                 },error =>{
                     this.updateError = "It is not possible update volunteer profile!!"

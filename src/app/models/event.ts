@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { EventId } from './EventId';
-import { Localitation } from './Localitation';
 
 @Injectable()
 export class Event {
 
-    private eventId: EventId;
-    public localitation: Localitation;
+     private eventId: EventId;
      private maxVolunteers: Number;
      private name:string;
      private eventType:string;
      private description:string;
      private eventDate:Date;
      private image:string;
-     public volunteers:string[];
-     public organization:string;
+     public volunteers:Volunteer[];
+     public organization:Organization;
+     public reviews:Review[];
+     public requirements:Requirement[];
+     public latitude:Number;
+     public longitude:Number;
 
-     constructor(eventId: EventId,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:string[],organization:string,localitation:Localitation) {
+
+     constructor(eventId: EventId,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number) {
          this.eventId = eventId;
          this.maxVolunteers = maxVolunteers;
          this.name = name;
@@ -25,8 +28,12 @@ export class Event {
          this.eventDate = eventDate;
          this.image = image;
          this.volunteers = volunteers;
-         this.localitation=localitation;
          this.organization=organization;
+         this.reviews=reviews;
+         this.requirements=requirements;
+         this.latitude=latitude;
+         this.longitude=longitude;
+
      }
 
  }

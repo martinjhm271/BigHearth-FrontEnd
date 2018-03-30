@@ -22,7 +22,6 @@ export class RegisterOrganizationPageComponent implements OnInit {
 
   ngOnInit() {
     this.todoForm = this.formBuilder.group({
-      username: '',
       password: '',
       mail: '',
       state: '',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '../../services/users.service';
+import { OrganizationService } from '../../services/organization.service';
 import { Organization } from '../../models/organization';
 
 
@@ -20,11 +20,10 @@ export class OrganizationProfConf implements OnInit {
     toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
 
-    constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
-        usersService.getUser(sessionStorage.getItem("currentUser")).subscribe(
+    constructor(public formBuilder:FormBuilder,public organizationService: OrganizationService,public router: Router) {
+        organizationService.getOrganizationByEmail(sessionStorage.getItem("currentUser")).subscribe(
             volg => {
                 this.organization = volg;
-                console.info(this.organization);
             }
         );
     }
@@ -33,15 +32,12 @@ export class OrganizationProfConf implements OnInit {
         this.OrgConfProfForm = this.formBuilder.group({
             businessName: '',
             commercialName: '',
-            email: '',
-            nit: '',
             address: '',
             state: '',
             city: '',
             password: '',
             confirmPassword: '',
             description: '',
-            hours: '',
             image: ''
 
         });
@@ -55,17 +51,24 @@ export class OrganizationProfConf implements OnInit {
     }
 
     checkPassword(password: string): boolean{
-        return (this.OrgConfProfForm.get('password').value.length > 4);
+        return (this.OrgConfProfForm.get('password').value.length >= 0);
     }
 
     doUpdate(){
         if(this.OrgConfProfForm.get('password').value === this.OrgConfProfForm.get('confirmPassword').value){
             if(this.checkPassword(this.OrgConfProfForm.get('password').value)){
-                let organizationUpdate: Organization = new Organization(this.organization.username,this.OrgConfProfForm.get('password').value,this.OrgConfProfForm.get('email').value,
-                this.OrgConfProfForm.get('state').value,this.OrgConfProfForm.get('city').value,this.OrgConfProfForm.get('address').value,this.OrgConfProfForm.get('description').value,this.listTop,
-                this.organization.volunteersMade,this.organization.eventRegistered,this.OrgConfProfForm.get('commercialName').value,this.OrgConfProfForm.get('businessName').value,this.OrgConfProfForm.get('nit').value,this.OrgConfProfForm.get('image').value);
 
-                this.usersService.updateOrganization(organizationUpdate).subscribe(responde =>{
+                organizationUpdate=this.organization;
+                if(this.OrgConfProfForm.get('businessName').value!=''){organizationUpdate.businessName=this.OrgConfProfForm.get('businessName').value;}
+                if(this.OrgConfProfForm.get('commercialName').value!=''){organizationUpdate.commercialName=this.OrgConfProfForm.get('commercialName').value;}
+                if(this.OrgConfProfForm.get('address').value!=''){organizationUpdate.address=this.OrgConfProfForm.get('address').value;}
+                if(this.OrgConfProfForm.get('state').value!=''){organizationUpdate.state=this.OrgConfProfForm.get('state').value;}
+                if(this.OrgConfProfForm.get('city').value!=''){organizationUpdate.city=this.OrgConfProfForm.get('city').value;}
+                if(this.OrgConfProfForm.get('password').value!=''){organizationUpdate.password=this.OrgConfProfForm.get('password').value;}
+                if(this.OrgConfProfForm.get('description').value!=''){organizationUpdate.description=this.OrgConfProfForm.get('description').value;}
+                if(this.OrgConfProfForm.get('image').value!=''){organizationUpdate.image=this.OrgConfProfForm.get('image').value;}
+
+                this.organizationService.updateOrganization(organizationUpdate).subscribe(responde =>{
                     this.router.navigate(['/']);
                 },error =>{
                     this.updateError = "It is not possible update organization profile!!"
@@ -80,6 +83,4 @@ export class OrganizationProfConf implements OnInit {
         }
         
     }
-
-
 }
