@@ -1,11 +1,14 @@
 import{Component, OnInit}from '@angular/core';
 import { AuthService } from '../../common/auth.service';
-import { UsersService } from '../../services/users.service';
-import { User } from '../../models/user';
+import { VolunteerService } from '../../services/volunteer.service';
+import { Volunteer } from '../../models/volunteer';
 import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { EventService } from '../../services/event.service';
+import { RolUser } from '../../models/rolUser';
+import { Roles } from '../../models/roles';
+
 
 @Component({
   selector: 'app-volunteer-detail-page',
@@ -13,34 +16,46 @@ import { EventService } from '../../services/event.service';
 })
 
 export class VolunteerDetailPageComponent implements OnInit {
-  public users: User[]=[];
-  public events: Event[]=[];
+  public users: Volunteer[]=[];
+  public events: any[]=[];
 
-  constructor(public router: Router,public userService: UsersService,public authService: AuthService,public eventService: EventService ) {
+  constructor(
+  public router: Router,
+  public volunteerService: VolunteerService,
+  public authService: AuthService,
+  public eventService: EventService
+   ) {
 
   }
 
   ngOnInit() {
     if(sessionStorage.getItem("clickedUser")==null){
-            this.userService.getUser(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+            this.volunteerService.getVolunteerByEmail(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+
               this.users.push(userResponse);
-              this.events=userResponse.eventRegistered;
+              this.users[0].mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(2,"volunteer"));
+              console.info(userResponse);
+              this.volunteerService.getEvents(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+                console.info(userResponse);
+                this.events=userResponse;
+              });
             })
         }else{
-            this.userService.getUser(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
+            this.volunteerService.getVolunteerByEmail(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
                 console.info(userResponse);
                       this.users.push(userResponse);
-                      this.events=userResponse.eventRegistered;
+                      this.events=userResponse.myEvents;
                     })
         }
   }
 
-  detailFunc(eventId,eventName) {
-      sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
+  detailFunc(eventId) {
+      sessionStorage.setItem("clickedEvent", eventId);
       this.router.navigate(['/eventDetail']);
   }
 
    unrol(id){
+
         this.eventService.unrolUser(id,sessionStorage.getItem("currentUser")).subscribe(
           response =>{
             console.log(response);

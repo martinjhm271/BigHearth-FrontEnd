@@ -4,7 +4,6 @@
     <thead>
     <tr>
         <th>Picture</th>
-        <th>Username</th>
         <th>Mail</th>
         <th>State</th>
         <th>City</th>
@@ -13,9 +12,8 @@
     </tr>
     </thead>
     <tr *ngFor="let user of users">
-        <td><img [src]="user.image" width="150" height="150" /></td>
-        <td>{{user.username}}</td>
-        <td>{{user.mail}}</td>
+        <td><img [src]="user.photo" width="150" height="150" /></td>
+        <td>{{user.mail.mail}}</td>
         <td>{{user.state}}</td>
         <td>{{user.city}}</td>
         <td>{{user.address}}</td>
@@ -40,7 +38,7 @@
                 <td>{{user.gender}}</td>
                 <td>{{user.bornDate}}</td>
                 <td>{{user.hours}}</td>
-                <td>{{user.volunteersMade}}</td>
+                <td>{{user.volunteerMade}}</td>
         
             </tr>
             </table>
@@ -58,9 +56,9 @@
     </thead>
     <tr *ngFor="let event of events">
         <td><img [src]="event.image" width="150" height="150" /></td>
-        <td (click)="detailFunc(event.eventId.id,event.eventId.name)">{{event.eventId.name}}</td>
+        <td (click)="detailFunc(event.id)">{{event.id}}</td>
         <td>{{event.eventDate}}</td>
-        <td><button type="button" class="button" (click)="unrol(event.eventId.id)">Unrol</button></td>
+        <td><button type="button" class="button" (click)="unrol(event.id)">Unrol</button></td>
     </tr>
     <button type="button" class="button" routerLinkActive="/volunteerProfConf" routerLink="/volunteerProfConf">Edit</button>
 </table>

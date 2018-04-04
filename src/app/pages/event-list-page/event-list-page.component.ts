@@ -24,8 +24,8 @@ export class EventListPageComponent implements OnInit {
   }
 
 
-  detailFunc(eventId,eventName) {
-      sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
+  detailFunc(eventId) {
+      sessionStorage.setItem("clickedEvent", eventId);
       this.router.navigate(['/eventDetail']);
     }
 

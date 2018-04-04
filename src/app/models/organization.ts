@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User} from '../models/user';
+import { RolUser} from '../models/RolUser';
 import { Event} from '../models/event';
 
 @Injectable()
@@ -16,6 +16,7 @@ export class Organization{
         public password: string;
         public nit: Number;
         public volunteersMade: Number;
+        public myEvents:Event[];
 
 
         constructor(commercialName: string,
@@ -28,7 +29,8 @@ export class Organization{
                     photo: string,
                     password: string,
                     nit: Number,
-                    volunteersMade: Number) {
+                    volunteersMade: Number,
+                    myEvents:Event[]) {
 
                 this.commercialName = commercialName;
                 this.businessName = businessName;
@@ -41,5 +43,6 @@ export class Organization{
                 this.password = password;
                 this.nit = nit;
                 this.volunteersMade = volunteersMade;
+                this.myEvents = myEvents;
         }
 }

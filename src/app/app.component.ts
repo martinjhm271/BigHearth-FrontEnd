@@ -26,6 +26,10 @@ export class AppComponent {
       return this.authService.isLoggedIn();
     }
 
+    isLoggedOut() {
+          return !this.authService.isLoggedIn();
+        }
+
     isRol(roles: string):boolean{
       if(roles.length === 3){
         return true;

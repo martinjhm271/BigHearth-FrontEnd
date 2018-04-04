@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { OrganizationService } from '../../services/organization.service';
 import { Organization } from '../../models/organization';
-
+import { RolUser } from '../../models/rolUser';
+import { Roles } from '../../models/roles';
 
 @Component({
   selector: 'app-organization-prof-conf',
@@ -57,8 +58,7 @@ export class OrganizationProfConf implements OnInit {
     doUpdate(){
         if(this.OrgConfProfForm.get('password').value === this.OrgConfProfForm.get('confirmPassword').value){
             if(this.checkPassword(this.OrgConfProfForm.get('password').value)){
-
-                organizationUpdate=this.organization;
+                var organizationUpdate=this.organization;
                 if(this.OrgConfProfForm.get('businessName').value!=''){organizationUpdate.businessName=this.OrgConfProfForm.get('businessName').value;}
                 if(this.OrgConfProfForm.get('commercialName').value!=''){organizationUpdate.commercialName=this.OrgConfProfForm.get('commercialName').value;}
                 if(this.OrgConfProfForm.get('address').value!=''){organizationUpdate.address=this.OrgConfProfForm.get('address').value;}
@@ -66,15 +66,15 @@ export class OrganizationProfConf implements OnInit {
                 if(this.OrgConfProfForm.get('city').value!=''){organizationUpdate.city=this.OrgConfProfForm.get('city').value;}
                 if(this.OrgConfProfForm.get('password').value!=''){organizationUpdate.password=this.OrgConfProfForm.get('password').value;}
                 if(this.OrgConfProfForm.get('description').value!=''){organizationUpdate.description=this.OrgConfProfForm.get('description').value;}
-                if(this.OrgConfProfForm.get('image').value!=''){organizationUpdate.image=this.OrgConfProfForm.get('image').value;}
-
+                if(this.OrgConfProfForm.get('image').value!=''){organizationUpdate.photo=this.OrgConfProfForm.get('image').value;}
+                organizationUpdate.mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(1,"Organization"));
                 this.organizationService.updateOrganization(organizationUpdate).subscribe(responde =>{
                     this.router.navigate(['/']);
                 },error =>{
                     this.updateError = "It is not possible update organization profile!!"
                 });
             }else{
-                this.updateError = "Password have to be more larger!!";
+                this.updateError = "Password have to be larger!!";
                 alert(this.updateError);
             }
         }else{

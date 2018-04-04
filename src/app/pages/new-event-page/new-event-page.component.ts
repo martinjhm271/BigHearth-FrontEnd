@@ -4,7 +4,9 @@ import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import { AuthService } from '../../common/auth.service';
 
 import { EventService } from '../../services/event.service';
+import { OrganizationService } from '../../services/organization.service';
 import { Localitation } from '../../models/Localitation';
+import { Organization } from '../../models/organization';
 
 @Component({
   selector: 'app-new-event-page',
@@ -30,6 +32,7 @@ export class NewEventPageComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public eventService: EventService,
+    public organizationService: OrganizationService,
     public formBuilder: FormBuilder,
     public router: Router,
   ) {
@@ -48,18 +51,26 @@ export class NewEventPageComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.newEventForm.get('name').value);
-    this.eventService.create(0,
-      this.newEventForm.get('maxVolunteers').value,
-      this.newEventForm.get('name').value,
-      this.newEventForm.get('eventType').value,
-      this.newEventForm.get('description').value,
-      this.newEventForm.get('eventDate').value,
-      this.newEventForm.get('image').value,new Array(),new Localitation(this.latitude,this.longitude)).subscribe(serverResponse=>{
-        this.router.navigate(['/eventList']);
-    }, error=>{
-      console.log(error);
+    this.organizationService.getOrganizationByEmail(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+        this.eventService.create(0,
+          this.newEventForm.get('name').value,
+          this.newEventForm.get('maxVolunteers').value,
+          this.newEventForm.get('eventType').value,
+          this.newEventForm.get('description').value,
+          this.newEventForm.get('eventDate').value,
+          this.newEventForm.get('image').value,
+          new Array(),
+          userResponse,
+          new Array(),
+          new Array(),
+          this.latitude,
+          this.longitude).subscribe(serverResponse=>{
+            this.router.navigate(['/eventList']);
+        }, error=>{
+          console.log(error);
+        });
     });
+
   }
 
   selectLocation(event){

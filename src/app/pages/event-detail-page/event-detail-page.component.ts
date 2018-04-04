@@ -1,12 +1,16 @@
 import{Component, OnInit}from '@angular/core';
 import { AuthService } from '../../common/auth.service';
 import {EventService}from '../../services/event.service';
+import {VolunteerService}from '../../services/volunteer.service';
+import {OrganizationService}from '../../services/organization.service';
+import {Volunteer}from '../../models/volunteer';
 import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
+import { RolUser } from '../../models/rolUser';
+import { Roles } from '../../models/roles';
 
 
 @Component({
@@ -18,20 +22,36 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class EventDetailPageComponent implements OnInit {
   private newMessageEmail: FormGroup;
   public events: Event[]=[];
-  public volunteers: string[]=[];
+  public volunteers: Volunteer[]=[];
   public latitude:Number= 4.6685;
   public longitude:Number=-74.0913;
 
-  constructor(public formBuilder: FormBuilder,private modalService: NgbModal,public router: Router,public eventService: EventService,public authService: AuthService) {
+  constructor(
+  public formBuilder: FormBuilder,
+  private modalService: NgbModal,
+  public router: Router,
+  public eventService: EventService,
+  public authService: AuthService,
+  public volunteerService: VolunteerService,
+  public organizationService: OrganizationService
+  ) {
 
   }
 
+
   ngOnInit() {
+
     this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
       this.events.push(eventResponse);
-      this.volunteers=eventResponse.volunteers;
-      this.latitude=eventResponse.localitation.latitude;
-      this.longitude=eventResponse.localitation.longitude;
+      this.organizationService.getOrganizationByIdEvent(eventResponse.id).subscribe(organizationResponse=>{
+          this.events[0].organization=organizationResponse
+          console.log(eventResponse);
+          this.volunteers=eventResponse.volunteers;
+          console.info(this.volunteers);
+          this.latitude=eventResponse.latitude;
+          this.longitude=eventResponse.longitude;
+      });
+
     })
     this.newMessageEmail = this.formBuilder.group({
       email:'',
@@ -67,9 +87,9 @@ export class EventDetailPageComponent implements OnInit {
     this.modalService.open(modal);
   }
 
-  consultUserinEvent(username:string): boolean{
+  consultUserinEvent(email:string): boolean{
     for (let volunteer of this.volunteers) {
-        if(volunteer === username){
+        if(volunteer.mail.mail === email){
             return true;
         }
     }
@@ -77,7 +97,7 @@ export class EventDetailPageComponent implements OnInit {
  }
 
   isVolunteer():boolean{ 
-    return this.authService.rol=="Volunteer" && !this.consultUserinEvent(sessionStorage.getItem("currentUser"));
+    return this.authService.rol=="volunteer" && !this.consultUserinEvent(sessionStorage.getItem("currentUser"));
   }
   
 

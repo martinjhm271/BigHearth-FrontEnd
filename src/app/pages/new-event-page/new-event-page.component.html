@@ -1,11 +1,11 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApphD15aEUPK6CUlQkduKgc3o3L8U0hY4&callback=myMap"></script>
 <div class="container">
-    <h2>New Volunteer</h2>
+    <h2>New event</h2>
     <form [formGroup]="newEventForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="row">
                 <div class="col">
                         <div class="form-group">
-                                <label for="name">Name of Volunteer</label>
+                                <label for="name">Name of Event</label>
                                 <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter a name for volunteering" required>
                             </div>
                             <div class="form-group">
@@ -14,14 +14,14 @@
                                   </div>
                                           
                             <div class="form-group">
-                                <label for="eventType">Volunteer Type</label>
+                                <label for="eventType">Event Type</label>
                                 <select class="customer-select d-block w-100" id="eventType" formControlName="eventType" required>
                                     <option value="">Choose...</option>
                                     <option *ngFor="let event of toppingList">{{event}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="localitation">Ubication of volunteer</label>
+                                <label for="localitation">Location of event</label>
                                 <agm-map id="localitation" [latitude]="latitude" [longitude]="longitude" (mapClick)="selectLocation($event)">
                                     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
                                 </agm-map>
@@ -29,18 +29,18 @@
                       </div>
                       <div class="col">
                             <div class="form-group">
-                                    <label for="description">description of Volunteer</label>
+                                    <label for="description">Description of event</label>
                                     <textarea  class="form-control" rows="5" id="description" formControlName="description" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="eventDate">Volunteer Date</label>
+                                    <label for="eventDate">Event Date</label>
                                     <input type="Date" class="form-control" id="eventDate" formControlName="eventDate" placeholder="yyyy/mm/dd" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">imageof Voluteer</label>
+                                    <label for="image">Image of event</label>
                                     <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter a URL for the volunteer image" required>
                                 </div>
-                                <button type="submit" class="button">Create Volunteer</button>
+                                <button type="submit" class="button">Create event</button>
                                 <button type="button" class="btn btn-danger">Cancel</button>
                       </div>
         </div>

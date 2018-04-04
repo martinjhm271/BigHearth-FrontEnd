@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { VolunteerService } from '../../services/volunteer.service';
 import { Volunteer } from '../../models/volunteer';
+import { RolUser } from '../../models/rolUser';
+import { Roles } from '../../models/roles';
 
 @Component({
   selector: 'app-volunteer-prof-conf',
@@ -60,8 +62,8 @@ export class VolunteerProfConf implements OnInit {
 
                 let volunteerUpdate: Volunteer = this.volunteer;
 
-                if(this.VolConfProfForm.get('firstName').value!=''){volunteerUpdate.firstName=this.VolConfProfForm.get('firstName').value}
-                if(this.VolConfProfForm.get('lastName').value!=''){volunteerUpdate.lastName=this.VolConfProfForm.get('lastName').value}
+                if(this.VolConfProfForm.get('firstName').value!=''){volunteerUpdate.name=this.VolConfProfForm.get('firstName').value}
+                if(this.VolConfProfForm.get('lastName').value!=''){volunteerUpdate.lastname=this.VolConfProfForm.get('lastName').value}
                 if(this.VolConfProfForm.get('gender').value!=''){volunteerUpdate.gender=this.VolConfProfForm.get('gender').value}
                 if(this.VolConfProfForm.get('bornDate').value!=''){volunteerUpdate.bornDate=this.VolConfProfForm.get('bornDate').value}
                 if(this.VolConfProfForm.get('address').value!=''){volunteerUpdate.address=this.VolConfProfForm.get('address').value}
@@ -69,8 +71,8 @@ export class VolunteerProfConf implements OnInit {
                 if(this.VolConfProfForm.get('city').value!=''){volunteerUpdate.city=this.VolConfProfForm.get('city').value}
                 if(this.VolConfProfForm.get('password').value!=''){volunteerUpdate.password=this.VolConfProfForm.get('password').value}
                 if(this.VolConfProfForm.get('description').value!=''){volunteerUpdate.description=this.VolConfProfForm.get('description').value}
-                if(this.VolConfProfForm.get('image').value!=''){volunteerUpdate.image=this.VolConfProfForm.get('image').value}
-
+                if(this.VolConfProfForm.get('image').value!=''){volunteerUpdate.photo=this.VolConfProfForm.get('image').value}
+                volunteerUpdate.mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(2,"volunteer"));
                 this.volunteerService.updateVolunteer(volunteerUpdate).subscribe(responde =>{
                     this.router.navigate(['/']);
                 },error =>{

@@ -5,8 +5,10 @@ import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import { Event} from '../models/event';
-import { EventId } from '../models/EventId';
-import { Localitation } from '../models/Localitation';
+import { Volunteer } from '../models/Volunteer';
+import { Organization } from '../models/Organization';
+import { Review } from '../models/Review';
+import { Requirement } from '../models/Requirement';
 
 
 @Injectable()
@@ -22,29 +24,29 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,maxVolunteers:Number,name:string,eventType:string,description:string,eventDate:Date,image:string,volunteers:any[],localitation:Localitation): Observable<Event> {
-    return this.post(this.resourceUrl+"/"+sessionStorage.getItem("currentUser"),new Event(new EventId(id,name),maxVolunteers,eventType,description,eventDate,image,volunteers,sessionStorage.getItem("currentUser"),localitation));
+  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {
+    console.info(new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
+    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
                                                    
   }
 
-    unrolUser(id:Number ,username: string):Observable<boolean>{
-      return this.post("event/unrol/"+id+"/"+username,null);
+    unrolUser(id: string,email: string):Observable<boolean>{
+      return this.post("event/unrol/"+id+"/"+email,0);
     }
 
-    rol(evenId:string,username:string):Observable<boolean>{
-      console.log(evenId.substring(0,evenId.indexOf(".")));
-      return this.post("event/rol/"+evenId.substring(0,evenId.indexOf("."))+"/"+username,null);
+    rol(id: string,email: string):Observable<boolean>{
+      return this.post("event/rol/"+id+"/"+email,0);
     }
 
   getEvents(): Observable<Event[]> {
-      return this.get(this.resourceUrl);
+      return this.get(this.resourceUrl+"/AllEvent");
     }
-    getEvent( idname:string  ):Observable<Event>
-        {
-           return this.get(this.resourceUrl+"/"+idname);
-        }
-    sendMailEvent(eventIdName:string,lista:string[]):Observable<Boolean>{
+
+  getEvent( idname:string  ):Observable<Event>{
+      return this.get(this.resourceUrl+"/"+idname);
+  }
+  sendMailEvent(eventIdName:string,lista:string[]):Observable<Boolean>{
       return this.post(this.resourceUrl+"/sendMailEvent/"+eventIdName,lista);
-    }
+  }
   
 }

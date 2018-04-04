@@ -3,13 +3,16 @@
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/home">Big Heart </a>
+    <a class="navbar-brand" href="/home"><img src="https://image.ibb.co/eSVgjx/logo1.png" width="60" height="60"></a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
+            <li *ngIf="isLoggedOut()" class="nav-item">
+                <a class="nav-link" routerLinkActive="/selectRol" routerLink="/selectRol">Login</a>
+            </li>
             <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/newEvent" routerLink="/newEvent">New Event</a>
             </li>
-            <li *ngIf="isLoggedIn() && isRol('Volunteer')" class="nav-item">
+            <li *ngIf="isLoggedIn() && isRol('volunteer')" class="nav-item">
                 <a class="nav-link" routerLinkActive="/volunteerDetails" routerLink="/volunteerDetails">My Profile</a>
             </li>
             <li *ngIf="isLoggedIn() && isRol('organization')" class="nav-item">
@@ -24,7 +27,6 @@
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <router-outlet></router-outlet>
 </div>

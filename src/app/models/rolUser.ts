@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { EventId } from './Roles';
+import { Roles } from './Roles';
 
 @Injectable()
 export class RolUser {
 
-     private mail: string;
+     public mail: string;
      private rol_id:Roles;
 
 

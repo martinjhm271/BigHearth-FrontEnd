@@ -10,7 +10,8 @@ import { INITIAL_CONFIG } from './common/config/initial-config';
 import { HttpModule } from '@angular/http';
 
 
-import { SignInPageComponent } from './pages/sign-in/sign-in-page.component';
+import { SignInVolunteerPageComponent } from './pages/sign-in-volunteer/sign-in-volunteer-page.component';
+import { SignInOrganizationPageComponent } from './pages/sign-in-organization/sign-in-organization-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { NewEventPageComponent } from './pages/new-event-page/new-event-page.component';
@@ -21,8 +22,10 @@ import { VolunteerDetailPageComponent } from './pages/volunteer-detail-page/volu
 import { RegisterVolunteerPageComponent } from './pages/register-volunteer-page/register-volunteer-page.component';
 import { RegisterOrganizationPageComponent } from './pages/register-organization-page/register-organization-page.component';
 import { SelectRolPageComponent } from './pages/select-rol-page/select-rol-page.component';
-import { UsersService } from './services/users.service';
 import { EventService } from './services/event.service';
+import { VolunteerService } from './services/volunteer.service';
+import { OrganizationService } from './services/organization.service';
+import { LoginService } from './services/login.service';
 import { AuthService } from './common/auth.service';
 import { VolunteerProfConf } from './pages/volunteer-prof-conf/volunteer-prof-conf.component';
 import { OrganizationProfConf } from './pages/organization-prof-conf/organization-prof-conf.component';
@@ -32,15 +35,17 @@ import { AgmCoreModule } from '@agm/core';
 
 
 const ROUTES = [
-     { path: '', component: SignInPageComponent },
-     { path: 'home', component: HomePageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: '', component: HomePageComponent},
+     { path: 'home', component: HomePageComponent},
+     { path: 'SignInVolunteer', component: SignInVolunteerPageComponent },
+     { path: 'SignInOrganization', component: SignInOrganizationPageComponent },
      { path: 'newEvent', component: NewEventPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization'}},
-     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] ,data: { expectedRole: 'Volunteer'}},
-     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
-     { path: 'organizationDetails', component: OrganizationDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
-     { path: 'volunteerDetails', component: VolunteerDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'volunteerProfConf', component: VolunteerProfConf,canActivate: [AuthService] ,data: { expectedRole: 'volunteer'}},
+     { path: 'eventDetail', component: EventDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,volunteer'}},
+     { path: 'organizationDetails', component: OrganizationDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,volunteer'}},
+     { path: 'volunteerDetails', component: VolunteerDetailPageComponent,canActivate: [AuthService],data: { expectedRole: 'organization,volunteer'}},
      { path: 'organizationProfConf', component: OrganizationProfConf,canActivate: [AuthService],data: { expectedRole: 'organization'}},
-     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organization,Volunteer'}},
+     { path: 'eventList', component: EventListPageComponent,canActivate: [AuthService], data: { expectedRole: 'organization,volunteer'}},
      { path: 'registerVolunteer', component: RegisterVolunteerPageComponent },
      { path: 'registerOrganization', component: RegisterOrganizationPageComponent },
      { path: 'selectRol', component: SelectRolPageComponent },
@@ -51,7 +56,8 @@ const ROUTES = [
   declarations: [
     AppComponent,
     HomePageComponent,
-    SignInPageComponent,
+    SignInVolunteerPageComponent,
+    SignInOrganizationPageComponent,
     PageNotFoundComponent,
     EventDetailPageComponent,
     EventListPageComponent,
@@ -81,8 +87,10 @@ const ROUTES = [
     },
     AuthService,
     AppDataService,
-    UsersService,
+    VolunteerService,
+    OrganizationService,
     EventService,
+    LoginService,
     AppConfiguration
   ],
   bootstrap: [AppComponent]

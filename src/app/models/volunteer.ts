@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
-import { User} from '../models/user';
+import { RolUser} from '../models/RolUser';
 import { Event} from '../models/event';
 
 @Injectable()
-export class Volunteer extends User{
+export class Volunteer{
 
-        private vol_id: Number;
-        private name: string;
-        private lastname: string;
-        private gender: string;
-        private bornDate: Date;
-        private hours: Number;
-        private state: string;
-        private city: string;
-        private address: string;
-        private description: string;
-        private volunteerMade: Number;
-        private photo: string;
-        private mail: RolUser;
-        private password: string;
-        private volInterest: string[];
+        public vol_id: Number;
+        public name: string;
+        public lastname: string;
+        public gender: string;
+        public bornDate: Date;
+        public hours: Number;
+        public state: string;
+        public city: string;
+        public address: string;
+        public description: string;
+        public volunteerMade: Number;
+        public photo: string;
+        public mail: RolUser;
+        public password: string;
+        public volInterest: string;
+        public myEvents:Event[];
 
 
 
@@ -37,7 +38,8 @@ export class Volunteer extends User{
                              photo: string,
                              mail: RolUser,
                              password: string,
-                             volInterest: string[]
+                             volInterest: string,
+                             myEvents:Event[]
 
         ) {
 
@@ -56,6 +58,7 @@ export class Volunteer extends User{
                 this.mail = mail;
                 this.password = password;
                 this.volInterest = volInterest;
+                this.myEvents = myEvents;
 
         }
 

@@ -1,10 +1,12 @@
 import{Component, OnInit}from '@angular/core';
 import { AuthService } from '../../common/auth.service';
-import { UsersService } from '../../services/users.service';
-import { User } from '../../models/user';
+import { OrganizationService } from '../../services/organization.service';
+import { Organization } from '../../models/organization';
 import { Event } from '../../models/event';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { RolUser } from '../../models/rolUser';
+import { Roles } from '../../models/roles';
 
 @Component({
   selector: 'app-organization-detail-page',
@@ -12,32 +14,34 @@ import { Router } from '@angular/router';
 })
 
 export class OrganizationDetailPageComponent implements OnInit {
-  public users: User[]=[];
+  public users: Organization[]=[];
   public events: Event[]=[];
 
-  constructor(public router: Router,public userService: UsersService,public authService: AuthService) {
+  constructor(public router: Router,public organizationService: OrganizationService,public authService: AuthService) {
 
   }
 
   ngOnInit() {
     if(sessionStorage.getItem("clickedUser")==null){
-        this.userService.getUser(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+        this.organizationService.getOrganizationByEmail(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
           this.users.push(userResponse);
-          this.events=userResponse.eventRegistered;
+          this.users[0].mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(1,"Organization"));
+          this.events=userResponse.myEvents;
           console.info(userResponse);
         })
     }else{
-        this.userService.getUser(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
-        console.info("2");
+        this.organizationService.getOrganizationByEmail(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
                   this.users.push(userResponse);
-                  this.events=userResponse.eventRegistered;
+                  this.events=userResponse.myEvents;
+
                 })
     }
 
   }
 
+
   detailFunc(eventId,eventName) {
-      sessionStorage.setItem("clickedEvent", eventId+"."+eventName);
+      sessionStorage.setItem("clickedEvent", eventId);
       this.router.navigate(['/eventDetail']);
     }
 
