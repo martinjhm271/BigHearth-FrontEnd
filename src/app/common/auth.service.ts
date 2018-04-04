@@ -28,6 +28,14 @@ export class AuthService implements CanActivate {
         this.appData.rol = rol;
     }
 
+    public get id(): string {
+        return this.appData.id;
+    }
+
+    public set id(id: string) {
+        this.appData.id = id;
+    }
+
     public isLoggedIn(): boolean {
         return this.appData.accessToken != null && this.appData.accessToken !== undefined;
     }

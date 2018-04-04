@@ -51,6 +51,7 @@ export class RegisterVolunteerPageComponent implements OnInit {
         ""
     ).subscribe(serverResponse=>{
         this.router.navigate(['/']);
+        alert('Registration Success!!');
          }, error=>{
            console.log(error);
          });

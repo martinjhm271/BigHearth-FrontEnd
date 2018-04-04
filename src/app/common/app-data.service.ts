@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class AppDataService {
 private _accessToken: string | null = null;
 private _rol: string | null = null;
+private _id: string | null = null;
 
 
 constructor(){}
@@ -30,6 +31,18 @@ public set accessToken(accessToken: string) {
       this._rol = localStorage.getItem('RL');
     }
     return this._rol;
+  }
+
+  public set id(id: string) {
+    this._id = id;
+    localStorage.setItem('id', id);
+  }
+
+  public get id(): string {
+    if (!this._id) {
+      this._id = localStorage.getItem('id');
+    }
+    return this._id;
   }
 
 

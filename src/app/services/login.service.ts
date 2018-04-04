@@ -7,7 +7,7 @@ import { Volunteer } from '../models/volunteer';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 import { Organization } from '../models/organization';
-
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class LoginService extends APIService {
@@ -27,6 +27,7 @@ constructor(
       if (loginResponse) {
         this.authService.accessToken = loginResponse.accessToken;
         this.authService.rol = loginResponse.rol;
+        this.authService.id = loginResponse.id;
       }
     });
   }

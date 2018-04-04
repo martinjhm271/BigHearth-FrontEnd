@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Roles } from './Roles';
+import { Roles } from './roles';
 
 @Injectable()
 export class RolUser {

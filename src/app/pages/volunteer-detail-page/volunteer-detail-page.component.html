@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th>Picture</th>
-        <th>Mail</th>
+        <th>Identifica</th>
         <th>State</th>
         <th>City</th>
         <th>Address</th>
@@ -13,7 +13,7 @@
     </thead>
     <tr *ngFor="let user of users">
         <td><img [src]="user.photo" width="150" height="150" /></td>
-        <td>{{user.mail.mail}}</td>
+        <td>{{user.vol_id}}</td>
         <td>{{user.state}}</td>
         <td>{{user.city}}</td>
         <td>{{user.address}}</td>

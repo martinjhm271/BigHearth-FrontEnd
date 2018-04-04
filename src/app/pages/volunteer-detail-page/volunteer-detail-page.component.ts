@@ -29,23 +29,24 @@ export class VolunteerDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(sessionStorage.getItem("clickedUser")==null){
-            this.volunteerService.getVolunteerByEmail(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
+    if(sessionStorage.getItem("clickedVolunteer")==null){
 
+            this.volunteerService.getVolunteerByEmail(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
               this.users.push(userResponse);
               this.users[0].mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(2,"volunteer"));
-              console.info(userResponse);
               this.volunteerService.getEvents(sessionStorage.getItem("currentUser")).subscribe(userResponse=>{
-                console.info(userResponse);
                 this.events=userResponse;
               });
             })
         }else{
-            this.volunteerService.getVolunteerByEmail(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
-                console.info(userResponse);
-                      this.users.push(userResponse);
-                      this.events=userResponse.myEvents;
-                    })
+
+          this.volunteerService.getVolunteerById(sessionStorage.getItem("clickedVolunteer")).subscribe(userResponse=>{
+            this.users.push(userResponse);
+            this.volunteerService.getEventsById(sessionStorage.getItem("clickedVolunteer")).subscribe(eventResponse=>{
+              console.info(eventResponse);
+              this.events=eventResponse;
+            });
+          });
         }
   }
 

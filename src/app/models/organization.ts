@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RolUser} from '../models/RolUser';
+import { RolUser} from '../models/rolUser';
 import { Event} from '../models/event';
 
 @Injectable()

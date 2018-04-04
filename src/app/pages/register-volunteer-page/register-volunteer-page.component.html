@@ -15,8 +15,12 @@
 
         <div class="row">
             <div class="form-group">
-                <label for="gender">Gender:</label>
-                <input type="text" class="form-control" id="gender" formControlName="gender">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender"  formControlName="gender" required>
+                    <option value="">Choose...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
             </div>
             <div>
                 <label for="bornDate">Born date:</label>

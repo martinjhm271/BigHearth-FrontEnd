@@ -5,7 +5,6 @@
     <thead>
     <tr>
         <th>Logo</th>
-        <th>Made by</th>
         <th>Max Of Volunteers</th>
         <th>Name</th>
         <th>Event Type</th>
@@ -15,7 +14,6 @@
     </thead>
     <tr *ngFor="let event of events">
         <td><img [src]="event.image" width="150" height="150" /></td>
-        <td (click)="detailFunc2(event.organization)" >{{event.organization}}</td>
         <td>{{event.maxVolunteers}}</td>
         <td>{{event.name}}</td>
         <td>{{event.eventType}}</td>
@@ -33,7 +31,7 @@
 </div>
 <td><button *ngIf="isVolunteer()" type="button" class="button" (click)="rol()">Rol</button></td>
 <form [formGroup]="newMessageEmail" *ngIf="!isVolunteer()" (ngSubmit)="onSubmit()" novalidate>
-    <button class="button" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
+    <button *ngIf="isOrganization()" class="button" type="button" data-toggle="modal" data-target="#exampleModal" (click)="ver(exampleModal)" >Send Message all volunteers</button>
     <!-- Modal -->
     <ng-template #exampleModal let-c="close">
         <div class="modal-header">

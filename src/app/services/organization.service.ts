@@ -5,11 +5,11 @@ import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Volunteer } from '../models/volunteer';
 import { Observer } from 'rxjs/Observer';
-import { Roles } from '../models/Roles';
-import { RolUser } from '../models/RolUser';
+import { Roles } from '../models/roles';
+import { RolUser } from '../models/rolUser';
 import { Observable } from 'rxjs/Observable';
 import { Organization } from '../models/organization';
-
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class OrganizationService extends APIService {

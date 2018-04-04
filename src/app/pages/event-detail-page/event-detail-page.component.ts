@@ -11,6 +11,7 @@ import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RolUser } from '../../models/rolUser';
 import { Roles } from '../../models/roles';
+import { Organization } from '../../models/organization';
 
 
 @Component({
@@ -23,8 +24,9 @@ export class EventDetailPageComponent implements OnInit {
   private newMessageEmail: FormGroup;
   public events: Event[]=[];
   public volunteers: Volunteer[]=[];
-  public latitude:Number= 4.6685;
-  public longitude:Number=-74.0913;
+  public latitude:Number;
+  public longitude:Number;
+  public organizacion: Organization;
 
   constructor(
   public formBuilder: FormBuilder,
@@ -39,25 +41,33 @@ export class EventDetailPageComponent implements OnInit {
   }
 
 
-  ngOnInit() {
 
-    this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse=>{
+ ngOnInit() {
+    this.organizationService.getOrganizationByIdEvent(+sessionStorage.getItem("clickedEvent")).subscribe(OrganizationRes =>{
+      console.log("entro");
+      this.organizacion = OrganizationRes;
+      console.log(this.organizacion);
+      console.log("sal");
+    });
+    
+    this.eventService.getEvent(sessionStorage.getItem("clickedEvent")).subscribe(eventResponse => {
+      console.log("entro2");
       this.events.push(eventResponse);
-      this.organizationService.getOrganizationByIdEvent(eventResponse.id).subscribe(organizationResponse=>{
-          this.events[0].organization=organizationResponse
-          console.log(eventResponse);
-          this.volunteers=eventResponse.volunteers;
-          console.info(this.volunteers);
-          this.latitude=eventResponse.latitude;
-          this.longitude=eventResponse.longitude;
-      });
+      this.volunteers=eventResponse.volunteers;
+      this.latitude=eventResponse.latitude;
+      this.longitude=eventResponse.longitude;
+      this.events[0].organization = this.organizacion;
+      console.log("sal2");
+    });
 
-    })
     this.newMessageEmail = this.formBuilder.group({
       email:'',
       Subject:''
     });
   }
+
+  
+  
 
   onSubmit() {
     this.eventService.sendMailEvent(sessionStorage.getItem("clickedEvent"),[this.newMessageEmail.get('Subject').value,this.newMessageEmail.get('email').value]).subscribe(serverResponse=>{
@@ -67,13 +77,14 @@ export class EventDetailPageComponent implements OnInit {
     });
   }
 
-  detailFunc(username) {
-      sessionStorage.setItem("clickedVolunteer", username);
+  detailFunc(volunteer) {
+    
+      sessionStorage.setItem("clickedVolunteer", volunteer.vol_id);
       this.router.navigate(['/volunteerDetails']);
     }
   
-  detailFunc2(organization) {
-      sessionStorage.setItem("clickedOrganization", organization);
+  detailFunc2() {
+      sessionStorage.setItem("clickedOrganization", this.organizacion.businessName);
       this.router.navigate(['/organizationDetails']);
 
   }
@@ -87,19 +98,24 @@ export class EventDetailPageComponent implements OnInit {
     this.modalService.open(modal);
   }
 
-  consultUserinEvent(email:string): boolean{
+  consultUserinEvent(id:string): boolean{
+
     for (let volunteer of this.volunteers) {
-        if(volunteer.mail.mail === email){
+        if(volunteer.vol_id === +id){
             return true;
         }
+        console.info(this.volunteers);
     }
     return false;
  }
 
   isVolunteer():boolean{ 
-    return this.authService.rol=="volunteer" && !this.consultUserinEvent(sessionStorage.getItem("currentUser"));
+    return this.authService.rol=="volunteer" && !this.consultUserinEvent(localStorage.getItem("id"));
   }
   
+  isOrganization():boolean{ 
+    return this.authService.rol=="organization";
+  }
 
   rol(){
     this.eventService.rol(sessionStorage.getItem("clickedEvent"),sessionStorage.getItem("currentUser")).subscribe(

@@ -5,11 +5,11 @@ import { AuthService } from '../common/auth.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import { Event} from '../models/event';
-import { Volunteer } from '../models/Volunteer';
-import { Organization } from '../models/Organization';
-import { Review } from '../models/Review';
-import { Requirement } from '../models/Requirement';
-
+import { Volunteer } from '../models/volunteer';
+import { Organization } from '../models/organization';
+import { Review } from '../models/review';
+import { Requirement } from '../models/requirement';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class EventService extends APIService {
@@ -24,9 +24,7 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {
-    console.info(new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
-    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
+  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
                                                    
   }
 
@@ -47,6 +45,10 @@ constructor(
   }
   sendMailEvent(eventIdName:string,lista:string[]):Observable<Boolean>{
       return this.post(this.resourceUrl+"/sendMailEvent/"+eventIdName,lista);
+  }
+
+  getOrgbyEvent( idEvent:Number  ):Observable<Organization>{
+    return this.get(this.resourceUrl+"/orgByEventId/"+idEvent);
   }
   
 }
