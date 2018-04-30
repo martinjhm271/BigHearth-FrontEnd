@@ -24,7 +24,7 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
+  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:Blob,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
                                                    
   }
 
@@ -49,6 +49,10 @@ constructor(
 
   getOrgbyEvent( idEvent:Number  ):Observable<Organization>{
     return this.get(this.resourceUrl+"/orgByEventId/"+idEvent);
+  }
+
+  setEventImage(id,fd): Observable<Event>{
+    return this.post(this.resourceUrl+"/"+id+"/image/upload",fd);
   }
   
 }

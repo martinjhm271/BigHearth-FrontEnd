@@ -14,6 +14,7 @@ import { Organization } from '../../models/organization';
   styleUrls: ['./new-event-page.component.css']
 })
 export class NewEventPageComponent implements OnInit {
+  selectedFile = null;
   private newEventForm: FormGroup;
   eventTypess = new FormControl();
   latitude= 4.6685;
@@ -58,14 +59,18 @@ export class NewEventPageComponent implements OnInit {
           this.newEventForm.get('eventType').value,
           this.newEventForm.get('description').value,
           this.newEventForm.get('eventDate').value,
-          this.newEventForm.get('image').value,
+          null,
           new Array(),
           userResponse,
           new Array(),
           new Array(),
           this.latitude,
           this.longitude).subscribe(serverResponse=>{
+            const fd = new FormData();
+            fd.append('image',this.selectedFile,this.selectedFile.name);
+            this.eventService.setEventImage(serverResponse.id,fd).subscribe(res=>{
             this.router.navigate(['/eventList']);
+            }, error=>{console.log(error);});
         }, error=>{
           console.log(error);
         });
@@ -78,12 +83,18 @@ export class NewEventPageComponent implements OnInit {
     this.longitude=event.coords.lng;
   }
 
-isLoggedIn() {
+  isLoggedIn() {
       return this.authService.isLoggedIn();
-    }
+  }
 
-    signOut() {
+  signOut() {
       this.authService.signOut();
-    }
+   }
+
+   onFileSelected(event){
+     this.selectedFile=event.target.files[0];
+   }
+
+
 
 }
