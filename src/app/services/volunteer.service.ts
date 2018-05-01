@@ -47,5 +47,9 @@ constructor(
     return this.post("volunteer",new Volunteer(0,name,lastname,gender,bornDate,0,state,city,address,description,0,photo,new RolUser(mail,new Roles(2,"Volunteer")),password,volInterest,[]));
   }
 
+  setVolunteerImage(id,fd): Observable<Event>{
+    return this.post('volunteer/'+id+"/image/upload",fd);
+  }
+
 
 }

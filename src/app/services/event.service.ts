@@ -10,6 +10,7 @@ import { Organization } from '../models/organization';
 import { Review } from '../models/review';
 import { Requirement } from '../models/requirement';
 import 'rxjs/add/observable/of';
+import { ResponseContentType } from '@angular/http';
 
 @Injectable()
 export class EventService extends APIService {
@@ -24,7 +25,7 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:Blob,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
+  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
                                                    
   }
 
@@ -53,6 +54,10 @@ constructor(
 
   setEventImage(id,fd): Observable<Event>{
     return this.post(this.resourceUrl+"/"+id+"/image/upload",fd);
+  }
+
+  getEventImage(id) : Observable<string[]>{
+    return this.get(this.resourceUrl+"/"+id+"/image");
   }
   
 }

@@ -13,7 +13,7 @@ export class Event {
      public eventType:string;
      public description:string;
      public eventDate:Date;
-     public image:Blob;
+     public image: string;
      public volunteers:Volunteer[];
      public organization:Organization;
      public reviews:Review[];
@@ -21,7 +21,7 @@ export class Event {
      public latitude:Number;
      public longitude:Number;
 
-     constructor(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:Blob,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number) {
+     constructor(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number) {
          this.id=id;
          this.maxVolunteers = maxVolunteers;
          this.name = name;

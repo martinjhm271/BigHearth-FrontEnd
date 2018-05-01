@@ -19,6 +19,7 @@ export class EventListPageComponent implements OnInit {
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(eventResponse=>{
+      console.info(eventResponse);
       this.events=eventResponse;
     })
   }

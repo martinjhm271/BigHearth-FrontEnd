@@ -46,13 +46,10 @@ export class RegisterOrganizationPageComponent implements OnInit {
       this.todoForm.get('password').value,
       this.todoForm.get('NIT').value
     ).subscribe(serverResponse=>{
+      alert('Registration success!!');
         this.router.navigate(['/']);
-        alert('Registration success!!');
          }, error=>{
            console.log(error);
          });
-
-   this.router.navigate(['/']);
   }
-
 }

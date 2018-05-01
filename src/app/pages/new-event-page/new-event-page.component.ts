@@ -5,7 +5,7 @@ import { AuthService } from '../../common/auth.service';
 
 import { EventService } from '../../services/event.service';
 import { OrganizationService } from '../../services/organization.service';
-import { Localitation } from '../../models/Localitation';
+
 import { Organization } from '../../models/organization';
 
 @Component({
@@ -19,6 +19,7 @@ export class NewEventPageComponent implements OnInit {
   eventTypess = new FormControl();
   latitude= 4.6685;
   longitude =-74.0913;
+  base64textString="";
 
   toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
@@ -59,17 +60,15 @@ export class NewEventPageComponent implements OnInit {
           this.newEventForm.get('eventType').value,
           this.newEventForm.get('description').value,
           this.newEventForm.get('eventDate').value,
-          null,
+          this.base64textString,
           new Array(),
           userResponse,
           new Array(),
           new Array(),
           this.latitude,
           this.longitude).subscribe(serverResponse=>{
-            const fd = new FormData();
-            fd.append('image',this.selectedFile,this.selectedFile.name);
-            this.eventService.setEventImage(serverResponse.id,fd).subscribe(res=>{
-            this.router.navigate(['/eventList']);
+          this.eventService.setEventImage(serverResponse.id,this.base64textString).subscribe(res=>{
+          this.router.navigate(['/eventList']);
             }, error=>{console.log(error);});
         }, error=>{
           console.log(error);
@@ -93,8 +92,19 @@ export class NewEventPageComponent implements OnInit {
 
    onFileSelected(event){
      this.selectedFile=event.target.files[0];
+     var reader = new FileReader();
+     reader.onload =this._handleReaderLoaded.bind(this);
+     reader.readAsBinaryString(this.selectedFile);
    }
 
+   _handleReaderLoaded(readerEvt) {
+     var binaryString = readerEvt.target.result;
+     this.base64textString= btoa(binaryString);
+    }
+
+    getImage = function(data){
+      return 'data:image/jpeg;base64,' + data;
+  }
 
 
 }

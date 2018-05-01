@@ -8,9 +8,12 @@
         <th>Name</th>
     </tr>
     </thead>
+
+    <div ng-app='test' ng-controller='Test'>
+        <img src={{base64}} />
+      </div>
     <tr *ngFor="let event of events">
-        <td><img ng-src="data:image/JPEG;base64,{{event.image}}" width="150" height="150" /></td>
-        <!--<td><img [src]="event.image" width="150" height="150" /></td>-->
+        <td><img [src]="'data:image/jpg;base64,' + event.image"></td>
         <td (click)="detailFunc(event.id)">{{event.id}}</td>
         <td>{{event.maxVolunteers}}</td>
         <td>{{event.name}}</td>

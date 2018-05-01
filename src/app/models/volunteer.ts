@@ -16,7 +16,7 @@ export class Volunteer{
         public address: string;
         public description: string;
         public volunteerMade: Number;
-        public photo: Blob;
+        public photo: string;
         public mail: RolUser;
         public password: string;
         public volInterest: string;
@@ -35,7 +35,7 @@ export class Volunteer{
                              address: string,
                              description: string,
                              volunteerMade: Number,
-                             photo: Blob,
+                             photo: string,
                              mail: RolUser,
                              password: string,
                              volInterest: string,

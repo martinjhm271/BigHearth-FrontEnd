@@ -12,7 +12,7 @@ export class Organization{
         public address: string;
         public description: string;
         public mail: RolUser;
-        public photo: Blob;
+        public photo: string;
         public password: string;
         public nit: Number;
         public volunteersMade: Number;
@@ -26,7 +26,7 @@ export class Organization{
                     address: string,
                     description: string,
                     mail: RolUser,
-                    photo: Blob,
+                    photo: string,
                     password: string,
                     nit: Number,
                     volunteersMade: Number,
