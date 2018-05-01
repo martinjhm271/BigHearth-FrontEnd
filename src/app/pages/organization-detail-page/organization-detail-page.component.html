@@ -2,7 +2,7 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <!--<th>Picture</th>-->
+        <th>Picture</th>
         <th>Mail</th>
         <th>State</th>
         <th>City</th>
@@ -16,8 +16,7 @@
     </tr>
     </thead>
     <tr *ngFor="let user of users">
-        <!--<td><img ng-src="data:image/JPEG;base64,{{user.photo}}" width="150" height="150" /></td>-->
-        <!--<td><img [src]="user.photo" width="150" height="150" /></td>-->
+        <td><img [src]="'data:image/jpg;base64,' + user.photo"></td>
         <td>{{user.mail.mail}}</td>
         <td>{{user.state}}</td>
         <td>{{user.city}}</td>
@@ -33,14 +32,13 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <!--<th>Event Logo</th>-->
+        <th>Event Logo</th>
         <th>Event Name</th>
         <th>Event Date</th>
     </tr>
     </thead>
     <tr *ngFor="let event of events">
-        <!--<td><img ng-src="data:image/JPEG;base64,{{event.image}}" width="150" height="150" /></td>-->
-        <!--<td><img [src]="event.image" width="150" height="150" /></td>-->
+        <td><img [src]="'data:image/jpg;base64,' + event.image"></td>
         <td (click)="detailFunc(event.id,event.name)">{{event.name}}</td>
         <td>{{event.eventDate}}</td>
     </tr>

@@ -11,6 +11,8 @@ import {OrganizationService}from '../../services/organization.service';
 })
 export class RegisterOrganizationPageComponent implements OnInit {
   private todoForm: FormGroup;
+  selectedFile = null;
+  base64textString="";
 
   constructor(
     public organizationService: OrganizationService,
@@ -46,10 +48,28 @@ export class RegisterOrganizationPageComponent implements OnInit {
       this.todoForm.get('password').value,
       this.todoForm.get('NIT').value
     ).subscribe(serverResponse=>{
-      alert('Registration success!!');
-        this.router.navigate(['/']);
-         }, error=>{
+
+      this.organizationService.setOrganizationImage(this.todoForm.get('mail').value,this.base64textString).subscribe(res=>{
+      this.router.navigate(['/']);
+      alert('Registration Success!!');
+        }, error=>{console.log(error);});
+         
+      }, error=>{
            console.log(error);
          });
   }
+
+  onFileSelected(event){
+    this.selectedFile=event.target.files[0];
+    var reader = new FileReader();
+    reader.onload =this._handleReaderLoaded.bind(this);
+    reader.readAsBinaryString(this.selectedFile);
+  }
+
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    this.base64textString= btoa(binaryString);
+   }
+
+
 }

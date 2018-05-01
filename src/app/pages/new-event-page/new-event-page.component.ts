@@ -15,11 +15,12 @@ import { Organization } from '../../models/organization';
 })
 export class NewEventPageComponent implements OnInit {
   selectedFile = null;
+  base64textString="";
   private newEventForm: FormGroup;
   eventTypess = new FormControl();
   latitude= 4.6685;
   longitude =-74.0913;
-  base64textString="";
+  
 
   toppingList = ['AMBIENTAL', 'COMUNITARIO', 'CULTURAL', 'EDUCATIVO', 'INTERNACIONAL',
                  'PROTECCIÓN CIVIL','DEPORTIVO','SOCIO-SANITARIO','SOCIAL','OCIO Y TIEMPO LIBRE'];
@@ -101,10 +102,5 @@ export class NewEventPageComponent implements OnInit {
      var binaryString = readerEvt.target.result;
      this.base64textString= btoa(binaryString);
     }
-
-    getImage = function(data){
-      return 'data:image/jpeg;base64,' + data;
-  }
-
 
 }

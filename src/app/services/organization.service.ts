@@ -45,8 +45,12 @@ constructor(
         return this.post('organization',new Organization(commercialName, businessName, state, city, address, description, new RolUser(mail,new Roles(1,"Organization")), photo, password, nit, 0,[]));
     }
 
-    setOrganizationImage(id,fd): Observable<Event>{
-      return this.post('organization/'+id+"/image/upload",fd);
+    setOrganizationImage(email,base64Image): Observable<Organization>{
+      return this.post('organization/'+email+"/image/upload",base64Image);
+    }
+  
+    getOrganizationImage(email) : Observable<string>{
+      return this.get('organization/'+email+"/image");
     }
 
 }

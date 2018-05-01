@@ -37,11 +37,9 @@
                                     <input type="Date" class="form-control" id="eventDate" formControlName="eventDate" placeholder="yyyy/mm/dd" required>
                                 </div>
 
-                                <input type="file" (change)="onFileSelected($event)"/>
-
                                 <div class="form-group">
                                     <label for="image">Image of event</label>
-                                    <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter a URL for the volunteer image" required>
+                                    <input id="image" type="file" (change)="onFileSelected($event)"/>
                                 </div>
 
 

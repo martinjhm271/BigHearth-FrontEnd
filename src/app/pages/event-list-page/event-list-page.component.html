@@ -9,9 +9,6 @@
     </tr>
     </thead>
 
-    <div ng-app='test' ng-controller='Test'>
-        <img src={{base64}} />
-      </div>
     <tr *ngFor="let event of events">
         <td><img [src]="'data:image/jpg;base64,' + event.image"></td>
         <td (click)="detailFunc(event.id)">{{event.id}}</td>
