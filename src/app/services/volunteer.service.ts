@@ -47,7 +47,7 @@ constructor(
     return this.post("volunteer",new Volunteer(0,name,lastname,gender,bornDate,0,state,city,address,description,0,photo,new RolUser(mail,new Roles(2,"Volunteer")),password,volInterest,[]));
   }
 
-  setVolunteerImage(email,base64Image): Observable<Organization>{
+  setVolunteerImage(email,base64Image): Observable<Volunteer>{
     return this.post('volunteer/'+email+"/image/upload",base64Image);
   }
 

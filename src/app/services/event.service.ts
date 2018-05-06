@@ -52,11 +52,11 @@ constructor(
     return this.get(this.resourceUrl+"/orgByEventId/"+idEvent);
   }
 
-  setEventImage(id,fd): Observable<Event>{
-    return this.post(this.resourceUrl+"/"+id+"/image/upload",fd);
+  setEventImage(id,base64Image): Observable<Event>{
+    return this.post(this.resourceUrl+"/"+id+"/image/upload",base64Image);
   }
 
-  getEventImage(id) : Observable<string[]>{
+  getEventImage(id) : Observable<string>{
     return this.get(this.resourceUrl+"/"+id+"/image");
   }
   
