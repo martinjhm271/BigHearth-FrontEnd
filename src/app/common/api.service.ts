@@ -33,6 +33,20 @@ constructor(
       .catch(this.handleError);
   }
 
+
+  postImage(url: string, body: any): Observable<any> {
+    
+    //let headers = new Headers({ 'Content-Type': undefined});
+    //const innerOptions = new RequestOptions({ headers });
+    
+    return this.http
+      .post(`${this.config.apiURL}/${url}`, body,{
+
+    })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   put(url: string, body: any, options?: any): Observable<any> {
     return this.http
       .put(`${this.config.apiURL}/${url}`, body, this.getRequestOptions(options))

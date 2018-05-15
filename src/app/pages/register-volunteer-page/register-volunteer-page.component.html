@@ -65,11 +65,13 @@
             </div>
         </div>
 
-        <div class="row">
-                <div class="form-group">
-                        <label for="image">Image of Avatar</label>
-                        <input id="image" type="file" (change)="onFileSelected($event)"/>
-                </div>
+       
+
+        <div class="form-group">
+                <label for="image">Image of Volunteer</label>
+                <input id="image" type="file" (change)="onFileSelected($event)"/>
+                <img src="{{preview}}" width="100" height="100" alt="Image preview...">
+                <pre>{{preview}}</pre>
         </div>
 
         <div class="form-group">

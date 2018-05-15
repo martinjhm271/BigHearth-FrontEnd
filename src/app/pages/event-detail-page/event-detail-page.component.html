@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tr *ngFor="let event of events">
-        <td><img [src]="'data:image/jpg;base64,' + event.image" width="150" height="150"></td>
+        <td><img [src]="'data:image/gif;base64,' + event.image" width="150" height="150"></td>
         <td>{{event.maxVolunteers}}</td>
         <td>{{event.name}}</td>
         <td>{{event.eventType}}</td>
@@ -59,6 +59,7 @@
     </tr>
     </thead>
     <tr *ngFor="let volunteer of volunteers">
+        <td><img [src]="'data:image/gif;base64,' + volunteer.photo" width="150" height="150"></td>
         <td (click)="detailFunc(volunteer)">{{volunteer.name}}</td>
     </tr>
 </table>

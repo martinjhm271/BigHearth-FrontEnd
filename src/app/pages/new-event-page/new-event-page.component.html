@@ -37,10 +37,16 @@
                                     <input type="Date" class="form-control" id="eventDate" formControlName="eventDate" placeholder="yyyy/mm/dd" required>
                                 </div>
 
+                               
                                 <div class="form-group">
-                                    <label for="image">Image of event</label>
-                                    <input id="image" type="file" (change)="onFileSelected($event)"/>
+                                        <label for="image">Image of event</label>
+                                        <input id="image" type="file" (change)="onFileSelected($event)"/>
+                                        <img src="{{preview}}" width="100" height="100" alt="Image preview...">
+                                        <pre>{{preview}}</pre>
                                 </div>
+                          
+                                       
+                            
 
 
                                 <button type="submit" class="button">Create event</button>

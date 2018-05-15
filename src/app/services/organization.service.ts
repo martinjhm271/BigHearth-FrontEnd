@@ -41,15 +41,15 @@ constructor(
     return this.post('organization/modifyProfileOrg',organization);
   }
 
-  createOrganization(commercialName: string,businessName: string,state: string,city: string,address: string,description: string,mail: string,photo: string,password: string,nit: Number):Observable<Organization>{
+  createOrganization(commercialName: string,businessName: string,state: string,city: string,address: string,description: string,mail: string,photo: any[],password: string,nit: Number):Observable<Organization>{
         return this.post("organization",new Organization(commercialName, businessName, state, city, address, description, new RolUser(mail,new Roles(1,"Organization")), photo, password, nit, 0,[]));
     }
 
-    setOrganizationImage(email,base64Image): Observable<Organization>{
-      return this.post("organization/"+email+"/image/upload",base64Image);
+    setOrganizationImage(email,fd){
+      return this.postImage("organization/"+email+"/image/upload",fd);
     }
   
-    getOrganizationImage(email) : Observable<string>{
+    getOrganizationImage(email){
       return this.get("organization/"+email+"/image");
     }
 

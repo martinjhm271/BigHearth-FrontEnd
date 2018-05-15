@@ -43,15 +43,15 @@ constructor(
     return this.put('volunteer/modifyProfileVol',volunteer);
   }
 
-  createVolunteer(name: string,lastname: string,gender: string,bornDate: Date,state: string,city: string,address: string,description: string,photo: any,mail: string,password: string,volInterest: string) {
+  createVolunteer(name: string,lastname: string,gender: string,bornDate: Date,state: string,city: string,address: string,description: string,photo: any[],mail: string,password: string,volInterest: string) {
     return this.post("volunteer",new Volunteer(0,name,lastname,gender,bornDate,0,state,city,address,description,0,photo,new RolUser(mail,new Roles(2,"Volunteer")),password,volInterest,[]));
   }
 
-  setVolunteerImage(email,base64Image): Observable<Volunteer>{
-    return this.post('volunteer/'+email+"/image/upload",base64Image);
+  setVolunteerImage(email,fd){
+    return this.postImage('volunteer/'+email+"/image/upload",fd);
   }
 
-  getVolunteerImage(email) : Observable<string>{
+  getVolunteerImage(email){
     return this.get('volunteer/'+email+"/image");
   }
 

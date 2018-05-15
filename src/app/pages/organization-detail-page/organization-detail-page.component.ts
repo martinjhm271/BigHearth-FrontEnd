@@ -16,7 +16,7 @@ import { Roles } from '../../models/roles';
 export class OrganizationDetailPageComponent implements OnInit {
   public users: Organization[]=[];
   public events: Event[]=[];
-
+  
   constructor(public router: Router,public organizationService: OrganizationService,public authService: AuthService) {
 
   }
@@ -27,16 +27,13 @@ export class OrganizationDetailPageComponent implements OnInit {
           this.users.push(userResponse);
           this.users[0].mail=new RolUser(sessionStorage.getItem("currentUser"),new Roles(1,"Organization"));
           this.events=userResponse.myEvents;
-          console.info(userResponse);
         })
     }else{
         this.organizationService.getOrganizationByEmail(sessionStorage.getItem("clickedUser")).subscribe(userResponse=>{
                   this.users.push(userResponse);
                   this.events=userResponse.myEvents;
-
                 })
     }
-
   }
 
 

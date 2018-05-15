@@ -12,7 +12,7 @@ export class Organization{
         public address: string;
         public description: string;
         public mail: RolUser;
-        public photo: string;
+        public photo: any[];
         public password: string;
         public nit: Number;
         public volunteersMade: Number;
@@ -26,7 +26,7 @@ export class Organization{
                     address: string,
                     description: string,
                     mail: RolUser,
-                    photo: string,
+                    photo: any[],
                     password: string,
                     nit: Number,
                     volunteersMade: Number,

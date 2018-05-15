@@ -25,7 +25,8 @@ constructor(
     super(config, authService, http);
   }
 
-  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:string,volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {    return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
+  create(id: Number,name:string,maxVolunteers:Number, eventType: string, description: string,eventDate:Date,image:any[],volunteers:Volunteer[],organization:Organization,reviews:Review[],requirements:Requirement[],latitude:Number,longitude:Number): Observable<Event> {   
+     return this.post(this.resourceUrl+"/createEvent/"+organization.nit,new Event(id,name,maxVolunteers, eventType, description,eventDate,image,volunteers,organization,reviews,requirements,latitude,longitude));
                                                    
   }
 
@@ -52,11 +53,11 @@ constructor(
     return this.get(this.resourceUrl+"/orgByEventId/"+idEvent);
   }
 
-  setEventImage(id,base64Image): Observable<Event>{
-    return this.post(this.resourceUrl+"/"+id+"/image/upload",base64Image);
+  setEventImage(id,fd){
+    return this.postImage(this.resourceUrl+"/"+id+"/image/upload",fd);
   }
 
-  getEventImage(id) : Observable<string>{
+  getEventImage(id) {
     return this.get(this.resourceUrl+"/"+id+"/image");
   }
   

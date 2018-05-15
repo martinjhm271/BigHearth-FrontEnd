@@ -75,10 +75,15 @@
                     <option *ngFor="let typeEvent of toppingList" (click)="add(typeEvent)" value={{typeEvent}}>{{typeEvent}}</option>
                 </select>
             </div>
-            <div class="col-md-6 mv-3" *ngIf="volunteer">
-                <label for="image">Set Image</label>
-                <input type="text" class="form-control" id="image" formControlName="image" required>
+
+
+            <div class="form-group">
+                    <label for="image">Image of Volunteer</label>
+                    <input id="image" type="file" (change)="onFileSelected($event)"/>
+                    <img src="{{preview}}" width="100" height="100" alt="Image preview...">
+                    <pre>{{preview}}</pre>
             </div>
+
         </div>
 
         <div class="wrapper">
